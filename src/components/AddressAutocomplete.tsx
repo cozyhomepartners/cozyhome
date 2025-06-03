@@ -1,6 +1,25 @@
 
 import React, { useEffect, useRef } from 'react';
 
+// Type declarations for Google Maps
+declare global {
+  interface Window {
+    google: typeof google;
+  }
+}
+
+declare namespace google {
+  namespace maps {
+    namespace places {
+      class Autocomplete {
+        constructor(input: HTMLInputElement, options?: any);
+        addListener(eventName: string, handler: () => void): void;
+        getPlace(): { formatted_address?: string; geometry?: any } | undefined;
+      }
+    }
+  }
+}
+
 interface AddressAutocompleteProps {
   value: string;
   onChange: (value: string) => void;

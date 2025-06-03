@@ -8,16 +8,12 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center">
             <img 
-              src="/lovable-uploads/b9e84219-b02c-49ba-b202-2a419ea4230d.png" 
-              alt="Cozy Home Partners Logo" 
-              className="h-8 w-auto"
+              src="/lovable-uploads/ca110335-9dae-4bbe-844a-69a6514033c4.png" 
+              alt="Logo" 
+              className="h-12 w-auto"
             />
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">Cozy Home Partners</h1>
-              <p className="text-xs text-gray-600">Kansas City Real Estate</p>
-            </div>
           </div>
 
           {/* Contact Info */}
