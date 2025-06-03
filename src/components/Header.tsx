@@ -12,11 +12,11 @@ const Header = () => {
             <img 
               src="/lovable-uploads/b9e84219-b02c-49ba-b202-2a419ea4230d.png" 
               alt="Cozy Home Partners Logo" 
-              className="h-12 w-auto"
+              className="h-8 w-auto"
             />
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Cozy Home Partners</h1>
-              <p className="text-sm text-gray-600">Kansas City Real Estate</p>
+              <h1 className="text-xl font-bold text-gray-900">Cozy Home Partners</h1>
+              <p className="text-xs text-gray-600">Kansas City Real Estate</p>
             </div>
           </div>
 

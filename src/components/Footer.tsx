@@ -10,9 +10,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                <div className="text-white font-bold text-xl">C</div>
-              </div>
+              <img 
+                src="/lovable-uploads/b9e84219-b02c-49ba-b202-2a419ea4230d.png" 
+                alt="Cozy Home Partners Logo" 
+                className="h-10 w-auto"
+              />
               <div>
                 <h3 className="text-2xl font-bold">Cozy Home Partners</h3>
                 <p className="text-gray-400">Kansas City Real Estate</p>
