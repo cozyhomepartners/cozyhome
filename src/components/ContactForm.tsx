@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import AddressAutocomplete from './AddressAutocomplete';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +16,13 @@ const ContactForm = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
+    });
+  };
+
+  const handleAddressChange = (address: string) => {
+    setFormData({
+      ...formData,
+      propertyAddress: address
     });
   };
 
@@ -67,15 +74,16 @@ const ContactForm = () => {
                 <label className="block text-gray-700 font-semibold mb-2">
                   Property Address *
                 </label>
-                <input
-                  type="text"
-                  name="propertyAddress"
+                <AddressAutocomplete
                   value={formData.propertyAddress}
-                  onChange={handleChange}
+                  onChange={handleAddressChange}
+                  placeholder="1234 Main St, Kansas City, MO 64111"
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                  placeholder="1234 Main St, Kansas City, MO 64111"
                 />
+                <p className="text-sm text-gray-500 mt-1">
+                  Note: Google Maps autocomplete requires an API key to be configured.
+                </p>
               </div>
 
               <div>
