@@ -9,9 +9,11 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-              <div className="text-white font-bold text-xl">C</div>
-            </div>
+            <img 
+              src="/lovable-uploads/b9e84219-b02c-49ba-b202-2a419ea4230d.png" 
+              alt="Cozy Home Partners Logo" 
+              className="h-12 w-auto"
+            />
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Cozy Home Partners</h1>
               <p className="text-sm text-gray-600">Kansas City Real Estate</p>
