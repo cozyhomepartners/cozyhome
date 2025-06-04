@@ -1,0 +1,140 @@
+
+import React, { useState } from 'react';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+
+const HeroContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    propertyAddress: '',
+  });
+  const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus('');
+
+    try {
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      console.log('Form submitted:', {
+        ...formData,
+        recipient: 'charles@cozyhomepartners.com'
+      });
+      
+      setStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        propertyAddress: '',
+      });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8">
+      <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+        Get Your Cash Offer
+      </h3>
+      
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <input
+            type="text"
+            name="propertyAddress"
+            value={formData.propertyAddress}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            placeholder="Property Address"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            placeholder="Full Name"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            placeholder="Phone Number"
+          />
+          
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            placeholder="Email Address"
+          />
+        </div>
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-200"
+        >
+          {isSubmitting ? (
+            <>
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+              <span>Processing...</span>
+            </>
+          ) : (
+            <>
+              <Send size={18} />
+              <span>Get My Cash Offer</span>
+            </>
+          )}
+        </button>
+
+        {status === 'success' && (
+          <div className="flex items-center space-x-2 text-green-600 bg-green-50 p-3 rounded-lg">
+            <CheckCircle size={18} />
+            <span className="text-sm">Message sent! We'll get back to you soon.</span>
+          </div>
+        )}
+
+        {status === 'error' && (
+          <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg">
+            <AlertCircle size={18} />
+            <span className="text-sm">Error sending message. Please try again.</span>
+          </div>
+        )}
+      </form>
+    </div>
+  );
+};
+
+export default HeroContactForm;

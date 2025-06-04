@@ -6,20 +6,11 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
-              <img 
-                src="/lovable-uploads/b9e84219-b02c-49ba-b202-2a419ea4230d.png" 
-                alt="Cozy Home Partners Logo" 
-                className="h-10 w-auto"
-              />
-              <div>
-                <h3 className="text-2xl font-bold">Cozy Home Partners</h3>
-                <p className="text-gray-400">Kansas City Real Estate</p>
-              </div>
-            </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Cozy Home Partners</h3>
+            <p className="text-gray-400 mb-4">Kansas City Real Estate</p>
             <p className="text-gray-300 mb-6 max-w-md">
               Your trusted Kansas City real estate partner, helping families find their perfect homes 
               across all counties in the metro area. Local expertise, personalized service.
