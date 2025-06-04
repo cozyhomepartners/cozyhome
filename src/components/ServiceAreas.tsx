@@ -6,7 +6,7 @@ const ServiceAreas = () => {
   const cities = [
     "Kansas City", "Independence", "Lee's Summit", "Blue Springs",
     "Raytown", "Liberty", "Gladstone", "North Kansas City",
-    "Belton", "Raymore"
+    "Belton", "Raymore", "Grandview"
   ];
 
   return (
@@ -30,6 +30,12 @@ const ServiceAreas = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="text-center mt-8">
+          <p className="text-gray-500 text-sm">
+            Don't see your area listed? <a href="#contact-form" className="text-blue-600 hover:underline">Contact us</a> - we may still be able to help!
+          </p>
         </div>
       </div>
     </section>

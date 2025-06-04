@@ -11,14 +11,14 @@ const HowToSell = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             How To Sell Your <span className="text-blue-600">House Quickly</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Selling your house for cash could not be easier. Blue Land Homes eliminate the need for official inspections or third 
+            Selling your house for cash could not be easier. Cozy Home Partners eliminate the need for official inspections or third 
             party approvals making the entire selling process hassle-free with the ability to close on your schedule. No delays, no 
             open houses, no walkthroughs, no uncertainties.
           </p>
