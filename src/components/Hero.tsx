@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { ArrowRight, Star } from 'lucide-react';
-
 const Hero = () => {
-  return (
-    <section className="relative bg-gradient-to-br from-blue-50 to-white py-20">
+  return <section className="relative bg-gradient-to-br from-blue-50 to-white py-20">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -27,7 +24,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-200 hover:scale-105">
-                <span>Get Started Today</span>
+                <span>Get My Cash Offer</span>
                 <ArrowRight size={20} />
               </button>
               <button className="border-2 border-gray-300 hover:border-gray-400 text-gray-700 px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:scale-105">
@@ -55,11 +52,7 @@ const Hero = () => {
           {/* Right Content - Image */}
           <div className="relative">
             <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=800&q=80" 
-                alt="Beautiful Kansas City Home" 
-                className="w-full h-full object-cover"
-              />
+              <img src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=800&q=80" alt="Beautiful Kansas City Home" className="w-full h-full object-cover" />
             </div>
             
             {/* Floating Card */}
@@ -77,8 +70,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
