@@ -3,6 +3,13 @@ import React from 'react';
 import { Clock, Users, DollarSign, Wrench } from 'lucide-react';
 
 const BenefitsOfSelling = () => {
+  const scrollToForm = () => {
+    const formElement = document.getElementById('contact-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const benefits = [
     {
       icon: <Clock className="w-16 h-16 text-blue-600" />,
@@ -31,14 +38,14 @@ const BenefitsOfSelling = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            4 <span className="text-blue-600 underline">Benefits Of Selling</span> Directly To Blue Land Homes
+            4 <span className="text-blue-600 underline">Benefits Of Selling</span> Directly To Cozy Home Partners
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We'll make you a fair cash offer so you can sell without the hassles and stress of listing.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
           {benefits.map((benefit, index) => (
             <div key={index} className="bg-gray-100 p-8 rounded-xl">
               <div className="flex items-start space-x-6">
@@ -56,6 +63,15 @@ const BenefitsOfSelling = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <button
+            onClick={scrollToForm}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105"
+          >
+            GET MY CASH OFFER
+          </button>
         </div>
       </div>
     </section>

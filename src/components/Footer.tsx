@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-bold mb-4">Cozy Home Partners</h3>
@@ -55,25 +55,12 @@ const Footer = () => {
               </div>
             </div>
           </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-xl font-semibold mb-6">Services</h4>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Home Buying</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Home Selling</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Market Analysis</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">First-Time Buyers</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Investment Properties</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Relocation Services</a></li>
-            </ul>
-          </div>
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Cozy Home Partners. All rights reserved.
+              Copyright © 2025 Cozy Home Partners. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
