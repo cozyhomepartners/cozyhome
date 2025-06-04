@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Star } from 'lucide-react';
-import HeroContactForm from './HeroContactForm';
 
 const Hero = () => {
   return (
@@ -43,9 +42,13 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - Contact Form */}
+          {/* Right Content - Hero Image */}
           <div className="relative">
-            <HeroContactForm />
+            <img 
+              src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=800&h=600" 
+              alt="Beautiful Kansas City Home" 
+              className="rounded-2xl shadow-2xl"
+            />
             
             {/* Floating Card */}
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border">
