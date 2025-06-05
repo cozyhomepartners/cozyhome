@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 
 // Type declarations for Google Maps
 declare global {
@@ -43,11 +44,19 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
       if (!inputRef.current) return;
 
       try {
+        // Get Google Maps API key from Supabase function
+        const { data: configData, error: configError } = await supabase.functions.invoke('get-maps-config');
+        
+        if (configError || !configData?.apiKey) {
+          console.log('Google Maps API key not configured, falling back to regular input');
+          return;
+        }
+
         // Load Google Maps API
         const { Loader } = await import('@googlemaps/js-api-loader');
         
         const loader = new Loader({
-          apiKey: 'YOUR_GOOGLE_MAPS_API_KEY', // User will need to add their API key
+          apiKey: configData.apiKey,
           version: 'weekly',
           libraries: ['places']
         });
