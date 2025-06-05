@@ -61,34 +61,63 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact-form" className="py-20 bg-black">
+    <section id="contact-form" className="py-20 bg-gray-900">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-white">
-              Fill out the form below and we'll provide you with a fair, no-obligation cash offer for your Kansas City home.
+            <p className="text-xl text-gray-300">
+              Contact us today for a free consultation about your Kansas City real estate needs.
             </p>
           </div>
 
           <div className="bg-white rounded-2xl shadow-2xl p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="propertyAddress" className="block text-sm font-medium text-gray-700 mb-2">
+                  Property Address *
+                </label>
+                <AddressAutocomplete
+                  value={formData.propertyAddress}
+                  onChange={handleAddressSelect}
+                  placeholder="1234 Main St, Kansas City, MO 64111"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-500"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  placeholder="Your full name"
+                />
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name *
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone Number *
                   </label>
                   <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                    placeholder="Enter your full name"
+                    placeholder="(816) 555-0123"
                   />
                 </div>
 
@@ -104,53 +133,9 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                    placeholder="Enter your email"
+                    placeholder="your@email.com"
                   />
                 </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                    placeholder="Enter your phone number"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="propertyAddress" className="block text-sm font-medium text-gray-700 mb-2">
-                    Property Address *
-                  </label>
-                  <AddressAutocomplete
-                    value={formData.propertyAddress}
-                    onChange={handleAddressSelect}
-                    placeholder="Enter property address"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Additional Information
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                  placeholder="Tell us more about your situation (optional)"
-                />
               </div>
 
               <button
@@ -166,7 +151,7 @@ const ContactForm = () => {
                 ) : (
                   <>
                     <Send size={18} />
-                    <span>Get My Cash Offer</span>
+                    <span>Send Message</span>
                   </>
                 )}
               </button>
