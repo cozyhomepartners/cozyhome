@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import AddressAutocomplete from './AddressAutocomplete';
 
@@ -14,6 +15,7 @@ interface AddressData {
 }
 
 const ContactForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,6 +30,7 @@ const ContactForm = () => {
   });
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [addressError, setAddressError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -41,6 +44,7 @@ const ContactForm = () => {
       ...formData,
       propertyAddress: address
     });
+    setAddressError('');
   };
 
   const handleDetailedAddressSelect = (addressData: AddressData) => {
@@ -53,10 +57,18 @@ const ContactForm = () => {
       state: addressData.state,
       zipcode: addressData.zipcode,
     });
+    setAddressError('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate that address was selected from dropdown
+    if (!formData.street || !formData.city || !formData.state) {
+      setAddressError('Please select a valid address from the dropdown suggestions');
+      return;
+    }
+
     setIsSubmitting(true);
     setStatus('');
 
@@ -81,19 +93,7 @@ const ContactForm = () => {
       }
 
       console.log('Form submitted successfully:', data);
-      setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        propertyAddress: '',
-        street: '',
-        unit: '',
-        city: '',
-        state: '',
-        zipcode: '',
-        message: ''
-      });
+      navigate('/thank-you');
     } catch (error) {
       console.error('Form submission error:', error);
       setStatus('error');
@@ -128,6 +128,7 @@ const ContactForm = () => {
                   placeholder="1234 Main St, Kansas City, MO 64111"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-500"
                   required
+                  error={addressError}
                 />
               </div>
 
@@ -213,13 +214,6 @@ const ContactForm = () => {
                   </>
                 )}
               </button>
-
-              {status === 'success' && (
-                <div className="flex items-center space-x-2 text-green-600 bg-green-50 p-3 rounded-lg">
-                  <CheckCircle size={18} />
-                  <span className="text-sm">Thank you! We'll be in touch soon.</span>
-                </div>
-              )}
 
               {status === 'error' && (
                 <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg">

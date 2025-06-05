@@ -62,7 +62,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Form data saved to database successfully");
 
-    // Send email notification
+    // Send email notification with all address fields
     const emailResponse = await resend.emails.send({
       from: "Cozy Home Partners <noreply@resend.dev>",
       to: ["charles@cozyhomepartners.com"],
@@ -73,11 +73,14 @@ const handler = async (req: Request): Promise<Response> => {
         <p><strong>Email:</strong> ${formData.email}</p>
         <p><strong>Phone:</strong> ${formData.phone}</p>
         <p><strong>Property Address:</strong> ${formData.propertyAddress}</p>
-        ${formData.street ? `<p><strong>Street:</strong> ${formData.street}</p>` : ''}
-        ${formData.unit ? `<p><strong>Unit:</strong> ${formData.unit}</p>` : ''}
+        
+        <h3>Detailed Address Information:</h3>
+        ${formData.street ? `<p><strong>Street Address:</strong> ${formData.street}</p>` : ''}
+        ${formData.unit ? `<p><strong>Unit/Apt:</strong> ${formData.unit}</p>` : ''}
         ${formData.city ? `<p><strong>City:</strong> ${formData.city}</p>` : ''}
         ${formData.state ? `<p><strong>State:</strong> ${formData.state}</p>` : ''}
         ${formData.zipcode ? `<p><strong>Zip Code:</strong> ${formData.zipcode}</p>` : ''}
+        
         ${formData.message ? `<p><strong>Message:</strong> ${formData.message}</p>` : ''}
         <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
       `,

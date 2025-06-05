@@ -45,6 +45,7 @@ interface AddressAutocompleteProps {
   placeholder?: string;
   className?: string;
   required?: boolean;
+  error?: string;
 }
 
 const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
@@ -53,11 +54,13 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
   onAddressSelect,
   placeholder = "Enter property address",
   className = "",
-  required = false
+  required = false,
+  error
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
   const [hasSelectedFromDropdown, setHasSelectedFromDropdown] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   useEffect(() => {
     const initializeAutocomplete = async () => {
@@ -98,6 +101,7 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
           const place = autocompleteRef.current?.getPlace();
           if (place?.formatted_address && place?.address_components) {
             setHasSelectedFromDropdown(true);
+            setShowError(false);
             
             // Parse address components
             const addressData = parseAddressComponents(place.address_components, place.formatted_address);
@@ -157,33 +161,66 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     
-    // If user is typing and hasn't selected from dropdown, allow changes
-    if (!hasSelectedFromDropdown || newValue === '') {
+    // If user clears the input, reset the selection state
+    if (newValue === '') {
+      setHasSelectedFromDropdown(false);
+      setShowError(false);
       onChange(newValue);
-      if (newValue === '') {
-        setHasSelectedFromDropdown(false);
-      }
+      return;
     }
+
+    // If user tries to type manually after selecting from dropdown, show error
+    if (hasSelectedFromDropdown) {
+      setShowError(true);
+      return;
+    }
+
+    onChange(newValue);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Allow backspace and delete to clear the field
+    if (hasSelectedFromDropdown && (e.key === 'Backspace' || e.key === 'Delete')) {
+      if (value === '') {
+        setHasSelectedFromDropdown(false);
+        setShowError(false);
+      }
+      return;
+    }
+
     // Prevent manual typing if an address has been selected from dropdown
-    if (hasSelectedFromDropdown && e.key !== 'Backspace' && e.key !== 'Delete') {
+    if (hasSelectedFromDropdown && e.key !== 'Tab' && e.key !== 'Enter') {
       e.preventDefault();
+      setShowError(true);
+    }
+  };
+
+  const handleBlur = () => {
+    // Show error if user typed manually but didn't select from dropdown
+    if (value && !hasSelectedFromDropdown && autocompleteRef.current) {
+      setShowError(true);
     }
   };
 
   return (
-    <input
-      ref={inputRef}
-      type="text"
-      value={value}
-      onChange={handleInputChange}
-      onKeyDown={handleKeyDown}
-      placeholder={placeholder}
-      required={required}
-      className={className}
-    />
+    <div className="relative">
+      <input
+        ref={inputRef}
+        type="text"
+        value={value}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
+        onBlur={handleBlur}
+        placeholder={placeholder}
+        required={required}
+        className={`${className} ${(error || showError) ? 'border-red-500 focus:ring-red-500' : ''}`}
+      />
+      {(error || showError) && (
+        <p className="mt-1 text-sm text-red-600">
+          {error || "Please select an address from the dropdown suggestions"}
+        </p>
+      )}
+    </div>
   );
 };
 

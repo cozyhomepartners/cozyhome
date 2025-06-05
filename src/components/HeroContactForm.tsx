@@ -29,6 +29,7 @@ const HeroContactForm = () => {
   });
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [addressError, setAddressError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -42,6 +43,7 @@ const HeroContactForm = () => {
       ...formData,
       propertyAddress: address
     });
+    setAddressError('');
   };
 
   const handleDetailedAddressSelect = (addressData: AddressData) => {
@@ -54,10 +56,18 @@ const HeroContactForm = () => {
       state: addressData.state,
       zipcode: addressData.zipcode,
     });
+    setAddressError('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate that address was selected from dropdown
+    if (!formData.street || !formData.city || !formData.state) {
+      setAddressError('Please select a valid address from the dropdown suggestions');
+      return;
+    }
+
     setIsSubmitting(true);
     setStatus('');
 
@@ -105,6 +115,7 @@ const HeroContactForm = () => {
             placeholder="Property Address"
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
             required
+            error={addressError}
           />
         </div>
 
