@@ -13,6 +13,12 @@ interface ContactFormData {
   email: string;
   phone: string;
   propertyAddress: string;
+  street?: string;
+  unit?: string;
+  city?: string;
+  state?: string;
+  zipcode?: string;
+  message?: string;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -41,6 +47,11 @@ const handler = async (req: Request): Promise<Response> => {
           email: formData.email,
           phone: formData.phone,
           property_address: formData.propertyAddress,
+          street_address: formData.street || null,
+          unit: formData.unit || null,
+          city: formData.city || null,
+          state: formData.state || null,
+          zipcode: formData.zipcode || null,
         },
       ]);
 
@@ -62,6 +73,12 @@ const handler = async (req: Request): Promise<Response> => {
         <p><strong>Email:</strong> ${formData.email}</p>
         <p><strong>Phone:</strong> ${formData.phone}</p>
         <p><strong>Property Address:</strong> ${formData.propertyAddress}</p>
+        ${formData.street ? `<p><strong>Street:</strong> ${formData.street}</p>` : ''}
+        ${formData.unit ? `<p><strong>Unit:</strong> ${formData.unit}</p>` : ''}
+        ${formData.city ? `<p><strong>City:</strong> ${formData.city}</p>` : ''}
+        ${formData.state ? `<p><strong>State:</strong> ${formData.state}</p>` : ''}
+        ${formData.zipcode ? `<p><strong>Zip Code:</strong> ${formData.zipcode}</p>` : ''}
+        ${formData.message ? `<p><strong>Message:</strong> ${formData.message}</p>` : ''}
         <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
       `,
     });

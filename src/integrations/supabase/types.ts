@@ -11,31 +11,46 @@ export type Database = {
     Tables: {
       contact_submissions: {
         Row: {
+          city: string | null
           created_at: string
           email: string
           id: string
           name: string
           phone: string
-          property_address: string
+          property_address: string | null
+          state: string | null
+          street_address: string | null
+          unit: string | null
           updated_at: string
+          zipcode: string | null
         }
         Insert: {
+          city?: string | null
           created_at?: string
           email: string
           id?: string
           name: string
           phone: string
-          property_address: string
+          property_address?: string | null
+          state?: string | null
+          street_address?: string | null
+          unit?: string | null
           updated_at?: string
+          zipcode?: string | null
         }
         Update: {
+          city?: string | null
           created_at?: string
           email?: string
           id?: string
           name?: string
           phone?: string
-          property_address?: string
+          property_address?: string | null
+          state?: string | null
+          street_address?: string | null
+          unit?: string | null
           updated_at?: string
+          zipcode?: string | null
         }
         Relationships: []
       }

@@ -5,6 +5,15 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import AddressAutocomplete from './AddressAutocomplete';
 
+interface AddressData {
+  street: string;
+  unit: string;
+  city: string;
+  state: string;
+  zipcode: string;
+  fullAddress: string;
+}
+
 const HeroContactForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -12,6 +21,11 @@ const HeroContactForm = () => {
     email: '',
     phone: '',
     propertyAddress: '',
+    street: '',
+    unit: '',
+    city: '',
+    state: '',
+    zipcode: '',
   });
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,6 +44,18 @@ const HeroContactForm = () => {
     });
   };
 
+  const handleDetailedAddressSelect = (addressData: AddressData) => {
+    setFormData({
+      ...formData,
+      propertyAddress: addressData.fullAddress,
+      street: addressData.street,
+      unit: addressData.unit,
+      city: addressData.city,
+      state: addressData.state,
+      zipcode: addressData.zipcode,
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -37,7 +63,17 @@ const HeroContactForm = () => {
 
     try {
       const { data, error } = await supabase.functions.invoke('submit-contact-form', {
-        body: formData
+        body: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          propertyAddress: formData.propertyAddress,
+          street: formData.street,
+          unit: formData.unit,
+          city: formData.city,
+          state: formData.state,
+          zipcode: formData.zipcode,
+        }
       });
 
       if (error) {
@@ -65,6 +101,7 @@ const HeroContactForm = () => {
           <AddressAutocomplete
             value={formData.propertyAddress}
             onChange={handleAddressSelect}
+            onAddressSelect={handleDetailedAddressSelect}
             placeholder="Property Address"
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
             required

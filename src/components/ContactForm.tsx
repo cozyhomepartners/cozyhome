@@ -4,12 +4,26 @@ import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import AddressAutocomplete from './AddressAutocomplete';
 
+interface AddressData {
+  street: string;
+  unit: string;
+  city: string;
+  state: string;
+  zipcode: string;
+  fullAddress: string;
+}
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     propertyAddress: '',
+    street: '',
+    unit: '',
+    city: '',
+    state: '',
+    zipcode: '',
     message: ''
   });
   const [status, setStatus] = useState('');
@@ -29,6 +43,18 @@ const ContactForm = () => {
     });
   };
 
+  const handleDetailedAddressSelect = (addressData: AddressData) => {
+    setFormData({
+      ...formData,
+      propertyAddress: addressData.fullAddress,
+      street: addressData.street,
+      unit: addressData.unit,
+      city: addressData.city,
+      state: addressData.state,
+      zipcode: addressData.zipcode,
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -36,7 +62,18 @@ const ContactForm = () => {
 
     try {
       const { data, error } = await supabase.functions.invoke('submit-contact-form', {
-        body: formData
+        body: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          propertyAddress: formData.propertyAddress,
+          street: formData.street,
+          unit: formData.unit,
+          city: formData.city,
+          state: formData.state,
+          zipcode: formData.zipcode,
+          message: formData.message
+        }
       });
 
       if (error) {
@@ -50,6 +87,11 @@ const ContactForm = () => {
         email: '',
         phone: '',
         propertyAddress: '',
+        street: '',
+        unit: '',
+        city: '',
+        state: '',
+        zipcode: '',
         message: ''
       });
     } catch (error) {
@@ -82,6 +124,7 @@ const ContactForm = () => {
                 <AddressAutocomplete
                   value={formData.propertyAddress}
                   onChange={handleAddressSelect}
+                  onAddressSelect={handleDetailedAddressSelect}
                   placeholder="1234 Main St, Kansas City, MO 64111"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-500"
                   required
