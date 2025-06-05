@@ -1,8 +1,10 @@
-
 import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
 
 const HeroContactForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,21 +27,16 @@ const HeroContactForm = () => {
     setStatus('');
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      console.log('Form submitted:', {
-        ...formData,
-        recipient: 'charles@cozyhomepartners.com'
+      const { data, error } = await supabase.functions.invoke('submit-contact-form', {
+        body: formData
       });
-      
-      setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        propertyAddress: '',
-      });
+
+      if (error) {
+        throw error;
+      }
+
+      console.log('Form submitted successfully:', data);
+      navigate('/thank-you');
     } catch (error) {
       console.error('Form submission error:', error);
       setStatus('error');
@@ -118,13 +115,6 @@ const HeroContactForm = () => {
             </>
           )}
         </button>
-
-        {status === 'success' && (
-          <div className="flex items-center space-x-2 text-green-600 bg-green-50 p-3 rounded-lg">
-            <CheckCircle size={18} />
-            <span className="text-sm">Message sent! We'll get back to you soon.</span>
-          </div>
-        )}
 
         {status === 'error' && (
           <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg">
