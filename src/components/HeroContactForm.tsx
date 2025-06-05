@@ -163,7 +163,7 @@ const HeroContactForm = () => {
             onChange={handleChange}
             rows={3}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-none"
-            placeholder="Tell us about your property or situation..."
+            placeholder="Message"
           />
         </div>
 
