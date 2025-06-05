@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
+import AddressAutocomplete from './AddressAutocomplete';
 
 const HeroContactForm = () => {
   const navigate = useNavigate();
@@ -18,6 +20,13 @@ const HeroContactForm = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
+    });
+  };
+
+  const handleAddressSelect = (address: string) => {
+    setFormData({
+      ...formData,
+      propertyAddress: address
     });
   };
 
@@ -53,14 +62,12 @@ const HeroContactForm = () => {
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <input
-            type="text"
-            name="propertyAddress"
+          <AddressAutocomplete
             value={formData.propertyAddress}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            onChange={handleAddressSelect}
             placeholder="Property Address"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            required
           />
         </div>
 

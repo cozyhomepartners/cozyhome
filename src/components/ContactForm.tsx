@@ -138,6 +138,21 @@ const ContactForm = () => {
                 </div>
               </div>
 
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  placeholder="Tell us about your property or situation..."
+                />
+              </div>
+
               <button
                 type="submit"
                 disabled={isSubmitting}
