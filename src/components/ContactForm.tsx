@@ -210,7 +210,7 @@ const ContactForm = () => {
                 ) : (
                   <>
                     <Send size={18} />
-                    <span>Send Message</span>
+                    <span>Get My Cash Offer</span>
                   </>
                 )}
               </button>

@@ -4,6 +4,7 @@ import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import AddressAutocomplete from './AddressAutocomplete';
+import { Textarea } from './ui/textarea';
 
 interface AddressData {
   street: string;
@@ -26,12 +27,13 @@ const HeroContactForm = () => {
     city: '',
     state: '',
     zipcode: '',
+    message: ''
   });
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [addressError, setAddressError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -83,6 +85,7 @@ const HeroContactForm = () => {
           city: formData.city,
           state: formData.state,
           zipcode: formData.zipcode,
+          message: formData.message
         }
       });
 
@@ -150,6 +153,17 @@ const HeroContactForm = () => {
             required
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
             placeholder="Email Address"
+          />
+        </div>
+
+        <div>
+          <Textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            rows={3}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-none"
+            placeholder="Tell us about your property or situation..."
           />
         </div>
 
