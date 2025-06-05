@@ -4,7 +4,7 @@ import { Star } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 to-white py-20">
+    <section className="relative bg-gradient-to-br from-blue-50 to-white py-10">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}

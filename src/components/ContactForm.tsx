@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Send, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -46,14 +47,14 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact-form" className="py-20 bg-gray-900">
+    <section id="contact-form" className="py-10 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-600">
               Contact us today for a free consultation about your Kansas City real estate needs.
             </p>
           </div>
@@ -102,7 +103,7 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                    placeholder="(816) 555-0123"
+                    placeholder="(847) 809-3322"
                   />
                 </div>
                 

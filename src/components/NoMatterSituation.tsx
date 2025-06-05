@@ -22,7 +22,7 @@ const NoMatterSituation = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <p className="text-gray-600 text-lg mb-4">We Can Buy Your House</p>

@@ -4,7 +4,7 @@ import HeroContactForm from './HeroContactForm';
 
 const HeroFormSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-6">
         <div className="max-w-xl mx-auto">
           <div className="text-center mb-12">
