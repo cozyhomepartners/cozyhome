@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from '../components/Header';
-import HeroFormSection from '../components/HeroFormSection';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
@@ -93,8 +92,6 @@ const OurProcess = () => {
         </div>
       </section>
 
-      <HeroFormSection />
-
       {/* Process Steps */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
@@ -168,26 +165,6 @@ const OurProcess = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="container mx-auto px-6 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Get your fair cash offer today. No obligations, no pressure.
-            </p>
-            <a 
-              href="#contact-form" 
-              className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-            >
-              Get My Cash Offer
-            </a>
           </div>
         </div>
       </section>

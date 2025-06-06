@@ -58,7 +58,7 @@ const Header = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-700 font-medium">
+                  <NavigationMenuTrigger className="text-gray-700 font-medium hover:text-blue-600 transition-colors">
                     Service Areas
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
