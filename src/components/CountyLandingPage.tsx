@@ -8,6 +8,7 @@ import WeBuyHouses from './WeBuyHouses';
 import NoMatterSituation from './NoMatterSituation';
 import ContactForm from './ContactForm';
 import Footer from './Footer';
+import SEOHead from './SEOHead';
 import { Star, MapPin } from 'lucide-react';
 
 interface CountyLandingPageProps {
@@ -18,8 +19,21 @@ interface CountyLandingPageProps {
 }
 
 const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandingPageProps) => {
+  const countySlug = countyName.toLowerCase().replace(' ', '-') + '-' + state.toLowerCase();
+  const canonicalUrl = `https://cozyhomepartners.com/${countySlug}`;
+  
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title={`We Buy Houses in ${countyName}, ${state} - Fast Cash Home Buyers | Cozy Home Partners`}
+        description={`We buy houses in ${countyName}, ${state} for cash! Get a fair offer in 24 hours. No fees, no repairs needed. Trusted cash home buyers serving ${countyName}.`}
+        keywords={`we buy houses, cash home buyers, sell house fast, ${countyName}, ${state}, real estate, home buyers`}
+        canonicalUrl={canonicalUrl}
+        ogImage={mapImage}
+        countyName={countyName}
+        state={state}
+      />
+      
       <Header />
       
       {/* Hero Section */}
@@ -34,13 +48,14 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
               </div>
               
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Find Your Perfect
-                <span className="text-blue-600 block">{countyName} Home</span>
+                We Buy Houses in
+                <span className="text-blue-600 block">{countyName}</span>
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed">
-                We specialize in helping families discover their dream homes across {countyName}, {state}. 
-                With local expertise and personalized service, we make your home buying journey seamless and stress-free.
+                Looking to sell your house fast in <span className="text-blue-600 font-semibold">{countyName}</span>? 
+                We are trusted cash home buyers in <span className="text-blue-600 font-semibold">{countyName}</span> offering 
+                hassle-free sales with no fees or closing costs.
               </p>
 
               {/* Stats */}

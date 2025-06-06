@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Star } from 'lucide-react';
 
@@ -14,14 +15,14 @@ const Hero = () => {
             </div>
             
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              Find Your Perfect
-              <span className="text-blue-600 block">Kansas City Home</span>
+              We Buy Houses in
+              <span className="text-blue-600 block">Kansas City</span>
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed">
-              We specialize in helping families discover their dream homes across Kansas City 
-              and surrounding counties. With local expertise and personalized service, 
-              we make your home buying journey seamless and stress-free.
+              Looking to sell your house fast in <span className="text-blue-600 font-semibold">Kansas City</span>? 
+              We are trusted cash home buyers in <span className="text-blue-600 font-semibold">Kansas City</span> offering 
+              hassle-free sales with no fees or closing costs.
             </p>
 
             {/* Stats */}
