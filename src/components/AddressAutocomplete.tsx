@@ -108,7 +108,10 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
             onChange(addressData.fullAddress);
             
             if (onAddressSelect) {
-              onAddressSelect(addressData);
+              // Use setTimeout to ensure the onChange call completes first
+              setTimeout(() => {
+                onAddressSelect(addressData);
+              }, 0);
             }
           }
         });
@@ -169,10 +172,10 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
       return;
     }
 
-    // If user tries to type manually after selecting from dropdown, show error
+    // If user tries to type manually after selecting from dropdown, allow it but reset validation
     if (hasSelectedFromDropdown) {
-      setShowError(true);
-      return;
+      setHasSelectedFromDropdown(false);
+      setShowError(false);
     }
 
     onChange(newValue);
@@ -187,16 +190,10 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
       }
       return;
     }
-
-    // Prevent manual typing if an address has been selected from dropdown
-    if (hasSelectedFromDropdown && e.key !== 'Tab' && e.key !== 'Enter') {
-      e.preventDefault();
-      setShowError(true);
-    }
   };
 
   const handleBlur = () => {
-    // Show error if user typed manually but didn't select from dropdown
+    // Only show error if Google Maps is loaded and user typed manually
     if (value && !hasSelectedFromDropdown && autocompleteRef.current) {
       setShowError(true);
     }
