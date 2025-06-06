@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -107,12 +106,15 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
             setHasSelectedFromDropdown(true);
             setShowError(false);
             
-            // Call onChange with the full address
-            onChange(addressData.fullAddress);
+            // Call onChange with the full address (keep the original formatted address)
+            onChange(place.formatted_address);
             
             // Call onAddressSelect with detailed data if provided
             if (onAddressSelect) {
-              onAddressSelect(addressData);
+              onAddressSelect({
+                ...addressData,
+                fullAddress: place.formatted_address
+              });
             }
           }
         });
@@ -149,16 +151,13 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
       }
     });
 
-    // Remove country from full address
-    const addressWithoutCountry = fullAddress.replace(/, USA$/, '');
-
     return {
       street: street.trim(),
       unit,
       city,
       state,
       zipcode,
-      fullAddress: addressWithoutCountry
+      fullAddress
     };
   };
 
