@@ -38,7 +38,23 @@ const Header = () => {
 
           {/* Navigation and Contact Info */}
           <div className="flex items-center space-x-8">
-            {/* Counties Navigation */}
+            {/* Main Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
+              <Link 
+                to="/" 
+                className="text-gray-700 font-medium hover:text-blue-600 transition-colors"
+              >
+                Home
+              </Link>
+              <Link 
+                to="/our-process" 
+                className="text-gray-700 font-medium hover:text-blue-600 transition-colors"
+              >
+                Our Process
+              </Link>
+            </div>
+
+            {/* Service Areas Navigation */}
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
