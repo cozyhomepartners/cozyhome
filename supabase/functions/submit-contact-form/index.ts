@@ -62,10 +62,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Form data saved to database successfully");
 
-    // Send email notification with updated subject line
+    // Send email notification with corrected "from" address
     const emailResponse = await resend.emails.send({
-      from: "Cozy Home Partners <noreply@resend.dev>",
-      to: ["offer@cozyhomepartners.com"],
+      from: "Cozy Home Partners <charles@cozyhomepartners.com>",
+      to: ["charles@cozyhomepartners.com"],
       subject: `Inbound - ${formData.propertyAddress}`,
       html: `
         <h2>New Contact Form Submission</h2>
