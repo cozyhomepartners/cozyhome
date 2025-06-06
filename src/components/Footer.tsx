@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -34,16 +34,9 @@ const Footer = () => {
             <h4 className="text-xl font-semibold mb-6">Contact Info</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <Phone size={18} className="text-blue-400 mt-1" />
-                <div>
-                  <p className="font-medium">(847) 809-3322</p>
-                  <p className="text-gray-400 text-sm">Call or text anytime</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
                 <Mail size={18} className="text-blue-400 mt-1" />
                 <div>
-                  <p className="font-medium">charles@cozyhomepartners.com</p>
+                  <p className="font-medium">offer@cozyhomepartners.com</p>
                   <p className="text-gray-400 text-sm">Quick response guaranteed</p>
                 </div>
               </div>
