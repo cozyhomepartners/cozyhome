@@ -38,8 +38,8 @@ const Header = () => {
 
           {/* Navigation and Contact Info */}
           <div className="flex items-center space-x-8">
-            {/* Main Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
+            {/* Main Navigation - Updated for equal spacing and consistent styling */}
+            <div className="hidden md:flex items-center space-x-8">
               <Link 
                 to="/" 
                 className="text-gray-700 font-medium hover:text-blue-600 transition-colors"
@@ -52,32 +52,32 @@ const Header = () => {
               >
                 Our Process
               </Link>
+              
+              {/* Service Areas Navigation with consistent styling */}
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-gray-700 font-medium hover:text-blue-600 transition-colors text-base">
+                      Service Areas
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid w-[400px] gap-3 p-4">
+                        {counties.map((county) => (
+                          <NavigationMenuLink key={county.path} asChild>
+                            <Link
+                              to={county.path}
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            >
+                              <div className="text-sm font-medium leading-none">{county.name}</div>
+                            </Link>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
             </div>
-
-            {/* Service Areas Navigation */}
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-700 font-medium hover:text-blue-600 transition-colors">
-                    Service Areas
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[400px] gap-3 p-4">
-                      {counties.map((county) => (
-                        <NavigationMenuLink key={county.path} asChild>
-                          <Link
-                            to={county.path}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                            <div className="text-sm font-medium leading-none">{county.name}</div>
-                          </Link>
-                        </NavigationMenuLink>
-                      ))}
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
 
             {/* Contact Info */}
             <div className="hidden md:flex items-center space-x-2 text-gray-700">
