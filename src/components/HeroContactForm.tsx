@@ -64,9 +64,9 @@ const HeroContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Only validate if we have a property address but missing components
-    if (formData.propertyAddress && (!formData.street || !formData.city || !formData.state)) {
-      setAddressError('Please select a valid address from the dropdown suggestions');
+    // Basic validation - just check if property address is provided
+    if (!formData.propertyAddress.trim()) {
+      setAddressError('Property address is required');
       return;
     }
 

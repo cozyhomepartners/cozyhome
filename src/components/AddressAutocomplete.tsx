@@ -100,18 +100,19 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
         autocompleteRef.current.addListener('place_changed', () => {
           const place = autocompleteRef.current?.getPlace();
           if (place?.formatted_address && place?.address_components) {
+            // Parse address components first
+            const addressData = parseAddressComponents(place.address_components, place.formatted_address);
+            
+            // Set state immediately to prevent validation errors
             setHasSelectedFromDropdown(true);
             setShowError(false);
             
-            // Parse address components
-            const addressData = parseAddressComponents(place.address_components, place.formatted_address);
+            // Call onChange with the full address
             onChange(addressData.fullAddress);
             
+            // Call onAddressSelect with detailed data if provided
             if (onAddressSelect) {
-              // Use setTimeout to ensure the onChange call completes first
-              setTimeout(() => {
-                onAddressSelect(addressData);
-              }, 0);
+              onAddressSelect(addressData);
             }
           }
         });
@@ -172,8 +173,8 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
       return;
     }
 
-    // If user tries to type manually after selecting from dropdown, allow it but reset validation
-    if (hasSelectedFromDropdown) {
+    // If user manually types after selecting from dropdown, reset validation state
+    if (hasSelectedFromDropdown && newValue !== value) {
       setHasSelectedFromDropdown(false);
       setShowError(false);
     }
@@ -188,14 +189,18 @@ const AddressAutocomplete: React.FC<AddressAutocompleteProps> = ({
         setHasSelectedFromDropdown(false);
         setShowError(false);
       }
-      return;
     }
   };
 
   const handleBlur = () => {
-    // Only show error if Google Maps is loaded and user typed manually
+    // Only show error if Google Maps is loaded, user typed manually, and didn't select from dropdown
     if (value && !hasSelectedFromDropdown && autocompleteRef.current) {
-      setShowError(true);
+      // Add a small delay to allow for place selection to complete
+      setTimeout(() => {
+        if (!hasSelectedFromDropdown) {
+          setShowError(true);
+        }
+      }, 100);
     }
   };
 
