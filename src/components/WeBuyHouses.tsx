@@ -52,11 +52,6 @@ const WeBuyHouses = () => {
       description: "Need to transition to assisted living and sell your home quickly for the move?"
     },
     {
-      icon: <Truck className="w-12 h-12 text-blue-600" />,
-      title: "Job Relocation",
-      description: "Got transferred for work and need to sell your house fast to complete the move?"
-    },
-    {
       icon: <Home className="w-12 h-12 text-blue-600" />,
       title: "Other Reasons You May Have",
       description: "Whatever your unique situation, we understand and are here to help with a fast cash sale."
@@ -70,7 +65,7 @@ const WeBuyHouses = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             We Can Buy Your House No Matter <span className="text-blue-600">The Situation!</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
             Your reasons for selling do not matter to us. The only thing we care about is solving your problem by buying 
             your house in cash as hassle-free as possible.
           </p>

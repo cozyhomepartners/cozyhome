@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-import AddressAutocomplete from './AddressAutocomplete';
+import SimpleAddressAutocomplete from './SimpleAddressAutocomplete';
 
 interface AddressData {
   street: string;
@@ -63,9 +63,9 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validate that address was selected from dropdown
-    if (!formData.street || !formData.city || !formData.state) {
-      setAddressError('Please select a valid address from the dropdown suggestions');
+    // Basic validation - just check if property address is provided
+    if (!formData.propertyAddress.trim()) {
+      setAddressError('Property address is required');
       return;
     }
 
@@ -121,7 +121,7 @@ const ContactForm = () => {
                 <label htmlFor="propertyAddress" className="block text-sm font-medium text-gray-700 mb-2">
                   Property Address *
                 </label>
-                <AddressAutocomplete
+                <SimpleAddressAutocomplete
                   value={formData.propertyAddress}
                   onChange={handleAddressSelect}
                   onAddressSelect={handleDetailedAddressSelect}
