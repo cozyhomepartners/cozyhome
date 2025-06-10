@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './Header';
 import HeroFormSection from './HeroFormSection';
 import HowToSell from './HowToSell';
@@ -19,6 +19,11 @@ interface CountyLandingPageProps {
 }
 
 const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandingPageProps) => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const countySlug = countyName.toLowerCase().replace(' ', '-') + '-' + state.toLowerCase();
   const canonicalUrl = `https://cozyhomepartners.com/${countySlug}`;
   

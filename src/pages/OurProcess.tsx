@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
@@ -7,6 +6,11 @@ import SEOHead from '../components/SEOHead';
 import { CheckCircle, Clock, DollarSign, FileText, Home, Key } from 'lucide-react';
 
 const OurProcess = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const steps = [
     {
       number: "01",

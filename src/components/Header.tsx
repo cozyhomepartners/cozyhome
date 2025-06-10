@@ -10,6 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "./ui/navigation-menu";
+import MobileNavigation from './MobileNavigation';
 
 const Header = () => {
   const counties = [
@@ -38,7 +39,7 @@ const Header = () => {
 
           {/* Navigation and Contact Info */}
           <div className="flex items-center space-x-8">
-            {/* Main Navigation - Updated for equal spacing and consistent styling */}
+            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link 
                 to="/" 
@@ -84,6 +85,9 @@ const Header = () => {
               <Mail size={18} className="text-blue-600" />
               <span className="font-medium">offer@cozyhomepartners.com</span>
             </div>
+
+            {/* Mobile Navigation */}
+            <MobileNavigation counties={counties} />
           </div>
         </div>
       </div>

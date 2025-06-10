@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Home, Wrench, Gavel, MapPin, Users, Truck } from 'lucide-react';
+import { Home, Wrench, Gavel, MapPin, Users, Truck, DollarSign, User } from 'lucide-react';
 
 const WeBuyHouses = () => {
   const scrollToForm = () => {
@@ -40,6 +40,26 @@ const WeBuyHouses = () => {
       icon: <Home className="w-12 h-12 text-blue-600" />,
       title: "Tired Landlord",
       description: "Sick of being a landlord and renting to tenants who trash your home and don't pay rent when it's due?"
+    },
+    {
+      icon: <DollarSign className="w-12 h-12 text-blue-600" />,
+      title: "Loss Of Income",
+      description: "Lost your job or had a reduction in income and can no longer afford your mortgage payments?"
+    },
+    {
+      icon: <User className="w-12 h-12 text-blue-600" />,
+      title: "Elderly Moving To Assisted Living",
+      description: "Need to transition to assisted living and sell your home quickly for the move?"
+    },
+    {
+      icon: <Truck className="w-12 h-12 text-blue-600" />,
+      title: "Job Relocation",
+      description: "Got transferred for work and need to sell your house fast to complete the move?"
+    },
+    {
+      icon: <Home className="w-12 h-12 text-blue-600" />,
+      title: "Other Reasons You May Have",
+      description: "Whatever your unique situation, we understand and are here to help with a fast cash sale."
     }
   ];
 
@@ -48,7 +68,7 @@ const WeBuyHouses = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            We Buy <span className="text-blue-600">Houses In ANY Situation</span> In Kansas City
+            We Can Buy Your House No Matter <span className="text-blue-600">The Situation!</span>
           </h2>
         </div>
 
