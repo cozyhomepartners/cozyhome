@@ -6,7 +6,6 @@ import HeroFormSection from '../components/HeroFormSection';
 import HowToSell from '../components/HowToSell';
 import BenefitsOfSelling from '../components/BenefitsOfSelling';
 import WeBuyHouses from '../components/WeBuyHouses';
-import NoMatterSituation from '../components/NoMatterSituation';
 import ServiceAreas from '../components/ServiceAreas';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
@@ -32,7 +31,6 @@ const Index = () => {
       <HowToSell />
       <BenefitsOfSelling />
       <WeBuyHouses />
-      <NoMatterSituation />
       <ServiceAreas />
       <ContactForm />
       <Footer />

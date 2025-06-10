@@ -70,6 +70,10 @@ const WeBuyHouses = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             We Can Buy Your House No Matter <span className="text-blue-600">The Situation!</span>
           </h2>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Your reasons for selling do not matter to us. The only thing we care about is solving your problem by buying 
+            your house in cash as hassle-free as possible.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">

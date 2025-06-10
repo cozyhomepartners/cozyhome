@@ -5,7 +5,6 @@ import HeroFormSection from './HeroFormSection';
 import HowToSell from './HowToSell';
 import BenefitsOfSelling from './BenefitsOfSelling';
 import WeBuyHouses from './WeBuyHouses';
-import NoMatterSituation from './NoMatterSituation';
 import ContactForm from './ContactForm';
 import Footer from './Footer';
 import SEOHead from './SEOHead';
@@ -109,7 +108,6 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
       <HowToSell />
       <BenefitsOfSelling />
       <WeBuyHouses />
-      <NoMatterSituation />
       
       {/* County-specific Service Areas */}
       <section className="py-20 bg-gray-50">
