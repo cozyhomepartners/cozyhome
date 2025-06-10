@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import HeroFormSection from '../components/HeroFormSection';
@@ -10,12 +10,11 @@ import ServiceAreas from '../components/ServiceAreas';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 const Index = () => {
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // Use scroll restoration hook instead of useEffect
+  useScrollRestoration();
 
   return (
     <div className="min-h-screen">

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+
+import React from 'react';
 import Header from './Header';
 import HeroFormSection from './HeroFormSection';
 import HowToSell from './HowToSell';
@@ -7,6 +8,7 @@ import WeBuyHouses from './WeBuyHouses';
 import ContactForm from './ContactForm';
 import Footer from './Footer';
 import SEOHead from './SEOHead';
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
 import { Star, MapPin } from 'lucide-react';
 
 interface CountyLandingPageProps {
@@ -17,10 +19,8 @@ interface CountyLandingPageProps {
 }
 
 const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandingPageProps) => {
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // Use scroll restoration hook instead of useEffect
+  useScrollRestoration();
 
   const countySlug = countyName.toLowerCase().replace(' ', '-') + '-' + state.toLowerCase();
   const canonicalUrl = `https://cozyhomepartners.com/${countySlug}`;
@@ -125,7 +125,7 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border">
               <div className="flex items-center justify-center gap-2 mb-6">
                 <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                   <span className="text-white text-sm">✓</span>

@@ -31,7 +31,11 @@ const sampleAddresses = [
   "147 Walnut St, Lenexa, KS 66215",
   "258 Birch Ave, Leawood, KS 66206",
   "369 Spruce Dr, Prairie Village, KS 66208",
-  "741 Hickory Rd, Raytown, MO 64133"
+  "741 Hickory Rd, Raytown, MO 64133",
+  "852 Commerce St, Liberty, MO 64068",
+  "963 Park Ave, Gladstone, MO 64116",
+  "159 Forest Dr, Excelsior Springs, MO 64024",
+  "357 Valley Rd, Kearney, MO 64060"
 ];
 
 const SimpleAddressAutocomplete: React.FC<SimpleAddressAutocompleteProps> = ({
@@ -45,6 +49,7 @@ const SimpleAddressAutocomplete: React.FC<SimpleAddressAutocompleteProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [filteredAddresses, setFilteredAddresses] = useState<string[]>([]);
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -55,9 +60,11 @@ const SimpleAddressAutocomplete: React.FC<SimpleAddressAutocompleteProps> = ({
       );
       setFilteredAddresses(filtered);
       setIsOpen(filtered.length > 0);
+      setHighlightedIndex(-1);
     } else {
       setFilteredAddresses([]);
       setIsOpen(false);
+      setHighlightedIndex(-1);
     }
   }, [value]);
 
@@ -70,6 +77,7 @@ const SimpleAddressAutocomplete: React.FC<SimpleAddressAutocompleteProps> = ({
         !inputRef.current.contains(event.target as Node)
       ) {
         setIsOpen(false);
+        setHighlightedIndex(-1);
       }
     };
 
@@ -100,6 +108,7 @@ const SimpleAddressAutocomplete: React.FC<SimpleAddressAutocompleteProps> = ({
   const handleAddressSelect = (address: string) => {
     onChange(address);
     setIsOpen(false);
+    setHighlightedIndex(-1);
     
     if (onAddressSelect) {
       const addressData = parseAddress(address);
@@ -117,6 +126,33 @@ const SimpleAddressAutocomplete: React.FC<SimpleAddressAutocompleteProps> = ({
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!isOpen) return;
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setHighlightedIndex(prev => 
+          prev < filteredAddresses.length - 1 ? prev + 1 : prev
+        );
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setHighlightedIndex(prev => prev > 0 ? prev - 1 : prev);
+        break;
+      case 'Enter':
+        e.preventDefault();
+        if (highlightedIndex >= 0 && highlightedIndex < filteredAddresses.length) {
+          handleAddressSelect(filteredAddresses[highlightedIndex]);
+        }
+        break;
+      case 'Escape':
+        setIsOpen(false);
+        setHighlightedIndex(-1);
+        break;
+    }
+  };
+
   return (
     <div className="relative">
       <input
@@ -125,9 +161,11 @@ const SimpleAddressAutocomplete: React.FC<SimpleAddressAutocompleteProps> = ({
         value={value}
         onChange={handleInputChange}
         onFocus={handleInputFocus}
+        onKeyDown={handleKeyDown}
         placeholder={placeholder}
         required={required}
         className={`${className} ${error ? 'border-red-500 focus:ring-red-500' : ''}`}
+        autoComplete="off"
       />
       
       {isOpen && filteredAddresses.length > 0 && (
@@ -139,9 +177,13 @@ const SimpleAddressAutocomplete: React.FC<SimpleAddressAutocompleteProps> = ({
             <div
               key={index}
               onClick={() => handleAddressSelect(address)}
-              className="px-4 py-3 hover:bg-blue-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+              className={`px-4 py-3 cursor-pointer border-b border-gray-100 last:border-b-0 ${
+                index === highlightedIndex 
+                  ? 'bg-blue-50 text-blue-900' 
+                  : 'hover:bg-gray-50 text-gray-900'
+              }`}
             >
-              <div className="text-gray-900 font-medium">{address}</div>
+              <div className="font-medium">{address}</div>
             </div>
           ))}
         </div>
