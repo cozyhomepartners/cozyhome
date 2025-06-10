@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CheckCircle, Home, Phone, Mail } from 'lucide-react';
+import { CheckCircle, Home, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ThankYou = () => {
@@ -46,20 +46,13 @@ const ThankYou = () => {
           
           <div className="space-y-4 mb-8">
             <p className="text-gray-600">Need to reach us immediately?</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <a 
-                href="tel:(847) 809-3322" 
-                className="flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-              >
-                <Phone size={18} />
-                <span>(847) 809-3322</span>
-              </a>
-              <a 
-                href="mailto:charles@cozyhomepartners.com" 
+                href="mailto:offer@cozyhomepartners.com" 
                 className="flex items-center justify-center space-x-2 bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-colors"
               >
                 <Mail size={18} />
-                <span>Email Us</span>
+                <span>offer@cozyhomepartners.com</span>
               </a>
             </div>
           </div>
