@@ -28,19 +28,19 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="inline-block cursor-pointer" onClick={(e) => e.preventDefault()}>
+            <Link to="/" className="inline-block">
               <img 
                 src="/lovable-uploads/e86a097d-c38b-4d16-8d67-8ae81767ce03.png" 
                 alt="Cozy Home Partners Logo" 
                 className="h-12 w-auto"
               />
-            </div>
+            </Link>
           </div>
 
           {/* Navigation and Contact Info */}
           <div className="flex items-center space-x-8">
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
+            <div className="hidden md:flex items-center space-x-8">
               <Link 
                 to="/" 
                 className="text-gray-700 font-medium hover:text-blue-600 transition-colors"
@@ -56,17 +56,17 @@ const Header = () => {
               
               {/* Service Areas Navigation - hover only */}
               <div className="relative group">
-                <span className="text-gray-700 font-medium cursor-default text-sm px-2 py-1">
+                <span className="text-gray-700 font-medium cursor-default text-base">
                   Service Areas
                 </span>
                 <div className="absolute top-full left-0 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="bg-white border border-gray-200 rounded-md shadow-lg w-[300px] p-2">
-                    <div className="grid gap-1">
+                  <div className="bg-white border border-gray-200 rounded-md shadow-lg w-[400px] p-4">
+                    <div className="grid gap-3">
                       {counties.map((county) => (
                         <Link
                           key={county.path}
                           to={county.path}
-                          className="block select-none rounded-md px-3 py-1.5 leading-none no-underline outline-none transition-colors hover:bg-gray-50 hover:text-blue-600"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-50 hover:text-blue-600"
                         >
                           <div className="text-sm font-medium leading-none">{county.name}</div>
                         </Link>
