@@ -28,19 +28,19 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="inline-block">
+            <div className="inline-block cursor-pointer" onClick={(e) => e.preventDefault()}>
               <img 
                 src="/lovable-uploads/e86a097d-c38b-4d16-8d67-8ae81767ce03.png" 
                 alt="Cozy Home Partners Logo" 
                 className="h-12 w-auto"
               />
-            </Link>
+            </div>
           </div>
 
           {/* Navigation and Contact Info */}
           <div className="flex items-center space-x-8">
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-6">
               <Link 
                 to="/" 
                 className="text-gray-700 font-medium hover:text-blue-600 transition-colors"
@@ -56,7 +56,7 @@ const Header = () => {
               
               {/* Service Areas Navigation - hover only */}
               <div className="relative group">
-                <span className="text-gray-700 font-medium cursor-default text-base">
+                <span className="text-gray-700 font-medium cursor-default text-sm px-2 py-1">
                   Service Areas
                 </span>
                 <div className="absolute top-full left-0 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
