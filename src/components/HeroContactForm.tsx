@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-import SimpleAddressAutocomplete from './SimpleAddressAutocomplete';
+import AddressAutocomplete from './AddressAutocomplete';
 import { Textarea } from './ui/textarea';
 
 interface AddressData {
@@ -111,7 +111,7 @@ const HeroContactForm = () => {
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <SimpleAddressAutocomplete
+          <AddressAutocomplete
             value={formData.propertyAddress}
             onChange={handleAddressSelect}
             onAddressSelect={handleDetailedAddressSelect}

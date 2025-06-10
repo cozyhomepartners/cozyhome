@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-import SimpleAddressAutocomplete from './SimpleAddressAutocomplete';
+import AddressAutocomplete from './AddressAutocomplete';
 
 interface AddressData {
   street: string;
@@ -121,7 +121,7 @@ const ContactForm = () => {
                 <label htmlFor="propertyAddress" className="block text-sm font-medium text-gray-700 mb-2">
                   Property Address *
                 </label>
-                <SimpleAddressAutocomplete
+                <AddressAutocomplete
                   value={formData.propertyAddress}
                   onChange={handleAddressSelect}
                   onAddressSelect={handleDetailedAddressSelect}
