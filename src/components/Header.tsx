@@ -60,7 +60,7 @@ const Header = () => {
                   Service Areas
                 </span>
                 <div className="absolute top-full left-0 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="bg-white border border-gray-200 rounded-md shadow-lg w-[200px] p-4">
+                  <div className="bg-white border border-gray-200 rounded-md shadow-lg w-[250px] p-4">
                     <div className="grid gap-3">
                       {counties.map((county) => (
                         <Link
