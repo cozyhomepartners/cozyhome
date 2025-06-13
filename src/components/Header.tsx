@@ -60,13 +60,13 @@ const Header = () => {
                   Service Areas
                 </span>
                 <div className="absolute top-full left-0 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="bg-white border border-gray-200 rounded-md shadow-lg w-[400px] p-4">
-                    <div className="grid gap-3">
+                  <div className="bg-white border border-gray-200 rounded-md shadow-lg w-[300px] p-2">
+                    <div className="grid gap-1">
                       {counties.map((county) => (
                         <Link
                           key={county.path}
                           to={county.path}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-50 hover:text-blue-600"
+                          className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-gray-50 hover:text-blue-600"
                         >
                           <div className="text-sm font-medium leading-none">{county.name}</div>
                         </Link>

@@ -64,11 +64,11 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
               {/* Stats */}
               <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">500+</div>
+                  <div className="text-3xl font-bold text-gray-900">100+</div>
                   <div className="text-gray-600">Homes Sold</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">15+</div>
+                  <div className="text-3xl font-bold text-gray-900">6+</div>
                   <div className="text-gray-600">Counties Served</div>
                 </div>
                 <div className="text-center">
