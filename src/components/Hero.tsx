@@ -20,7 +20,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed">
-              Cash home buyers serving Kansas City, Liberty, Blue Springs, Lee Summit, Raytown, Lenexa, Olathe, Shawnee, and Prairie Village. We buy houses for cash in KC and surrounding areas with no fees or closing costs.
+              Cash home buyers serving <span className="text-blue-600 font-semibold">Kansas City</span>, <span className="text-blue-600 font-semibold">Liberty</span>, <span className="text-blue-600 font-semibold">Blue Springs</span>, <span className="text-blue-600 font-semibold">Lee Summit</span>, <span className="text-blue-600 font-semibold">Raytown</span>, <span className="text-blue-600 font-semibold">Lenexa</span>, <span className="text-blue-600 font-semibold">Olathe</span>, <span className="text-blue-600 font-semibold">Shawnee</span>, and <span className="text-blue-600 font-semibold">Prairie Village</span>. We buy houses for cash in KC and surrounding areas with no fees or closing costs.
             </p>
 
             {/* Stats */}
