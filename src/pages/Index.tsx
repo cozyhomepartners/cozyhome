@@ -19,9 +19,9 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="We Buy Houses Kansas City - Fast Cash Home Buyers | Cozy Home Partners"
-        description="We buy houses in Kansas City for cash! Get a fair offer in 24 hours. No fees, no repairs needed. Trusted cash home buyers serving Missouri and Kansas counties."
-        keywords="we buy houses, cash home buyers, sell house fast, Kansas City real estate, Missouri, Kansas, home buyers"
+        title="We Buy Houses for Cash Kansas City, Liberty MO, Raytown, Lenexa KS | Cash Home Buyers"
+        description="We buy houses for cash in Liberty MO, Raytown, Lenexa KS, Olathe KS, Shawnee KS, Prairie Village KS. Cash home buyers serving Kansas City metro area. Get your fair cash offer today!"
+        keywords="we buy houses for cash liberty mo, cash home buyers raytown, we buy houses lenexa ks, we buy houses cash kc, we buy houses kansas, we buy houses olathe ks, cash home buyers prairie village ks, cash home buyers lenexa ks, we buy houses shawnee ks, cash home buyers lenexa"
         canonicalUrl="https://cozyhomepartners.com/"
       />
       <Header />

@@ -11,18 +11,17 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
               <Star size={16} className="text-blue-600" />
-              <span>Trusted Kansas City Real Estate Experts</span>
+              <span>Trusted Cash Home Buyers Kansas City Metro</span>
             </div>
             
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              We Buy Houses in
+              We Buy Houses for Cash in
               <span className="text-blue-600 block">Kansas City</span>
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed">
-              Looking to sell your house fast in <span className="text-blue-600 font-semibold">Kansas City</span>? 
-              We are trusted cash home buyers in <span className="text-blue-600 font-semibold">Kansas City</span> offering 
-              hassle-free sales with no fees or closing costs.
+              Cash home buyers serving <span className="text-blue-600 font-semibold">Liberty MO</span>, <span className="text-blue-600 font-semibold">Raytown</span>, <span className="text-blue-600 font-semibold">Lenexa KS</span>, <span className="text-blue-600 font-semibold">Olathe KS</span>, <span className="text-blue-600 font-semibold">Shawnee KS</span>, and <span className="text-blue-600 font-semibold">Prairie Village KS</span>. 
+              We buy houses cash KC and surrounding areas with no fees or closing costs.
             </p>
 
             {/* Stats */}
@@ -46,7 +45,7 @@ const Hero = () => {
           <div className="relative">
             <img 
               src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=800&h=600" 
-              alt="Beautiful Kansas City Home" 
+              alt="We buy houses for cash in Kansas City, Liberty MO, Raytown, Lenexa KS" 
               className="rounded-2xl shadow-2xl"
             />
             
@@ -58,7 +57,7 @@ const Hero = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900">Just Sold!</div>
-                  <div className="text-gray-600 text-sm">Overland Park, KS</div>
+                  <div className="text-gray-600 text-sm">Lenexa, KS</div>
                 </div>
               </div>
             </div>
