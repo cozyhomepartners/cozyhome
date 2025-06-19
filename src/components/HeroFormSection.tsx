@@ -12,8 +12,7 @@ const HeroFormSection = () => {
               Get Your Cash Offer Today
             </h2>
             <p className="text-xl text-gray-600">
-              Cash home buyers serving Liberty MO, Raytown, Lenexa KS, Olathe KS, Shawnee KS, and Prairie Village KS. 
-              We buy houses for cash with fair, no-obligation offers.
+              Fill out the form below and we'll provide you with a fair, no-obligation cash offer for your Kansas City home.
             </p>
           </div>
           <HeroContactForm />
