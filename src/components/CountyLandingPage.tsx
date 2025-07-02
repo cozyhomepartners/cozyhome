@@ -22,8 +22,13 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
   // Use scroll restoration hook instead of useEffect
   useScrollRestoration();
 
-  const countySlug = countyName.toLowerCase().replace(' ', '-') + '-' + state.toLowerCase();
-  const canonicalUrl = `https://cozyhomepartners.com/${countySlug}`;
+  // Generate canonical URL that matches the actual route
+  const getCanonicalUrl = (county: string, state: string) => {
+    const countySlug = county.toLowerCase().replace(' county', '').replace(' ', '') + '-county-' + state.toLowerCase();
+    return `https://cozyhomepartners.com/${countySlug}`;
+  };
+  
+  const canonicalUrl = getCanonicalUrl(countyName, state);
   
   return (
     <div className="min-h-screen">
