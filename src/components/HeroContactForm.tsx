@@ -123,7 +123,7 @@ const HeroContactForm = () => {
             onChange={handleAddressSelect}
             onAddressSelect={handleDetailedAddressSelect}
             placeholder="Property Address"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
             required
             error={addressError}
           />
@@ -136,7 +136,7 @@ const HeroContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
             placeholder="Full Name"
           />
         </div>
@@ -148,7 +148,7 @@ const HeroContactForm = () => {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
             placeholder="Phone Number"
           />
           
@@ -158,7 +158,7 @@ const HeroContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
             placeholder="Email Address"
           />
         </div>
@@ -169,7 +169,7 @@ const HeroContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             rows={3}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-none placeholder:text-gray-500"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-none placeholder:text-gray-500 placeholder:text-base"
             placeholder="Tell us about your property or situation..."
           />
         </div>
