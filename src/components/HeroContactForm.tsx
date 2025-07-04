@@ -123,7 +123,7 @@ const HeroContactForm = () => {
             onChange={handleAddressSelect}
             onAddressSelect={handleDetailedAddressSelect}
             placeholder="Property Address"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500"
             required
             error={addressError}
           />
@@ -136,7 +136,7 @@ const HeroContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500"
             placeholder="Full Name"
           />
         </div>
@@ -148,7 +148,7 @@ const HeroContactForm = () => {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500"
             placeholder="Phone Number"
           />
           
@@ -158,7 +158,7 @@ const HeroContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500"
             placeholder="Email Address"
           />
         </div>
