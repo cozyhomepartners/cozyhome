@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import AddressAutocomplete from './AddressAutocomplete';
 import { Textarea } from './ui/textarea';
+import { Checkbox } from './ui/checkbox';
 
 interface AddressData {
   street: string;
@@ -32,6 +33,7 @@ const HeroContactForm = () => {
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [addressError, setAddressError] = useState('');
+  const [consentChecked, setConsentChecked] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -64,9 +66,14 @@ const HeroContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation - just check if property address is provided
+    // Basic validation - check property address and consent
     if (!formData.propertyAddress.trim()) {
       setAddressError('Property address is required');
+      return;
+    }
+
+    if (!consentChecked) {
+      setStatus('consent-error');
       return;
     }
 
@@ -167,6 +174,22 @@ const HeroContactForm = () => {
           />
         </div>
 
+        {/* Consent Checkbox */}
+        <div className="flex items-start space-x-3">
+          <Checkbox 
+            checked={consentChecked}
+            onCheckedChange={(checked) => setConsentChecked(checked === true)}
+            className="mt-1"
+          />
+          <div className="text-sm text-gray-600">
+            By submitting this form, you agree to receive follow-up messages from 
+            Cozy Home Partners. Text and data rates may apply. Message frequency varies. Reply 
+            STOP to unsubscribe. See our{' '}
+            <a href="/privacy-policy" className="text-blue-600 hover:underline">privacy policy</a>{' '}
+            for more details.
+          </div>
+        </div>
+
         <button
           type="submit"
           disabled={isSubmitting}
@@ -189,6 +212,13 @@ const HeroContactForm = () => {
           <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg">
             <AlertCircle size={18} />
             <span className="text-sm">Error sending message. Please try again.</span>
+          </div>
+        )}
+        
+        {status === 'consent-error' && (
+          <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg">
+            <AlertCircle size={18} />
+            <span className="text-sm">Please agree to receive follow-up messages to continue.</span>
           </div>
         )}
       </form>
