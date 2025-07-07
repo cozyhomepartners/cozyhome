@@ -22,7 +22,7 @@ const Index = () => {
         title="Cozy Home Partners - Kansas City"
         description="We buy houses for cash in Liberty MO, Raytown, Lenexa KS, Olathe KS, Shawnee KS, Prairie Village KS. Cash home buyers serving Kansas City metro area. Get your fair cash offer today!"
         keywords="we buy houses for cash liberty mo, cash home buyers raytown, we buy houses lenexa ks, we buy houses cash kc, we buy houses kansas, we buy houses olathe ks, cash home buyers prairie village ks, cash home buyers lenexa ks, we buy houses shawnee ks, cash home buyers lenexa"
-        canonicalUrl="https://cozyhomepartners.com/"
+        canonicalUrl="https://www.cozyhomepartners.com/"
       />
       <Header />
       <Hero />

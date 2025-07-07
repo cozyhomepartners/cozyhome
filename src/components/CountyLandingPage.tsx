@@ -25,7 +25,7 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
   // Generate canonical URL that matches the actual route
   const getCanonicalUrl = (county: string, state: string) => {
     const countySlug = county.toLowerCase().replace(' county', '').replace(' ', '') + '-county-' + state.toLowerCase();
-    return `https://cozyhomepartners.com/${countySlug}`;
+    return `https://www.cozyhomepartners.com/${countySlug}`;
   };
   
   const canonicalUrl = getCanonicalUrl(countyName, state);
