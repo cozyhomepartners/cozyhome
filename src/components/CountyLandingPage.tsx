@@ -22,11 +22,10 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
   // Use scroll restoration hook instead of useEffect
   useScrollRestoration();
 
-  // Generate canonical URL that matches the actual domain (www or non-www)
+  // Generate canonical URL with consistent www domain
   const getCanonicalUrl = (county: string, state: string) => {
     const countySlug = county.toLowerCase().replace(' county', '').replace(' ', '') + '-county-' + state.toLowerCase();
-    const currentDomain = typeof window !== 'undefined' ? window.location.hostname : 'cozyhomepartners.com';
-    return `https://${currentDomain}/${countySlug}`;
+    return `https://www.cozyhomepartners.com/${countySlug}`;
   };
   
   const canonicalUrl = getCanonicalUrl(countyName, state);
