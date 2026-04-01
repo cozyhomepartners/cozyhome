@@ -70,17 +70,17 @@ const HeroContactForm = () => {
       </p>
 
       {/* Trust signals */}
-      <div className="flex flex-wrap justify-center gap-4 mb-6 text-sm text-gray-600">
+      <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-6 text-sm text-gray-600 max-w-xs mx-auto">
         <div className="flex items-center gap-1.5">
-          <CheckCircle size={16} className="text-green-500" />
+          <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
           <span>No obligation</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <CheckCircle size={16} className="text-green-500" />
+          <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
           <span>24hr response</span>
         </div>
-        <div className="flex items-center gap-1.5">
-          <CheckCircle size={16} className="text-green-500" />
+        <div className="flex items-center gap-1.5 col-span-2 justify-center">
+          <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
           <span>Zero fees</span>
         </div>
       </div>
