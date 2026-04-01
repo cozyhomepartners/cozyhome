@@ -2,14 +2,6 @@
 import React from 'react';
 import { Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "./ui/navigation-menu";
 import MobileNavigation from './MobileNavigation';
 
 const Header = () => {
@@ -21,6 +13,13 @@ const Header = () => {
     { name: "Johnson County, KS", path: "/johnson-county-ks" },
     { name: "Platte County, KS", path: "/platte-county-ks" },
   ];
+
+  const scrollToForm = () => {
+    const formSection = document.getElementById('hero-form') || document.getElementById('contact-form');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -38,7 +37,7 @@ const Header = () => {
           </div>
 
           {/* Navigation and Contact Info */}
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-6">
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link 
@@ -77,11 +76,13 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Contact Info */}
-            <div className="hidden md:flex items-center space-x-2 text-gray-700">
-              <Mail size={18} className="text-blue-600" />
-              <span className="font-medium">offer@cozyhomepartners.com</span>
-            </div>
+            {/* CTA Button */}
+            <button
+              onClick={scrollToForm}
+              className="hidden md:inline-flex bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-5 rounded-lg font-semibold text-sm transition-all duration-200"
+            >
+              Get My Cash Offer
+            </button>
 
             {/* Mobile Navigation */}
             <MobileNavigation counties={counties} />

@@ -1,19 +1,9 @@
 
 import React, { useState } from 'react';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-
 import { Checkbox } from './ui/checkbox';
-
-interface AddressData {
-  street: string;
-  unit: string;
-  city: string;
-  state: string;
-  zipcode: string;
-  fullAddress: string;
-}
 
 const ContactForm = () => {
   const navigate = useNavigate();
@@ -41,31 +31,9 @@ const ContactForm = () => {
     });
   };
 
-  const handleAddressSelect = (address: string) => {
-    setFormData({
-      ...formData,
-      propertyAddress: address
-    });
-    setAddressError('');
-  };
-
-  const handleDetailedAddressSelect = (addressData: AddressData) => {
-    setFormData({
-      ...formData,
-      propertyAddress: addressData.fullAddress,
-      street: addressData.street,
-      unit: addressData.unit,
-      city: addressData.city,
-      state: addressData.state,
-      zipcode: addressData.zipcode,
-    });
-    setAddressError('');
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation - check property address and consent
     if (!formData.propertyAddress.trim()) {
       setAddressError('Property address is required');
       return;
@@ -95,11 +63,7 @@ const ContactForm = () => {
         }
       });
 
-      if (error) {
-        throw error;
-      }
-
-      console.log('Form submitted successfully:', data);
+      if (error) throw error;
       navigate('/thank-you');
     } catch (error) {
       console.error('Form submission error:', error);
@@ -115,10 +79,10 @@ const ContactForm = () => {
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">
-              Ready to Get Started?
+              Ready to Get Your Cash Offer?
             </h2>
             <p className="text-xl text-gray-300">
-              Contact us today for a free consultation about your Kansas City real estate needs.
+              Tell us about your property and we'll get back to you with a fair, no-obligation offer within 24 hours.
             </p>
           </div>
 
@@ -133,11 +97,11 @@ const ContactForm = () => {
                   name="propertyAddress"
                   value={formData.propertyAddress}
                   onChange={(e) => {
-                    handleAddressSelect(e.target.value);
+                    setFormData({ ...formData, propertyAddress: e.target.value });
                     setAddressError('');
                   }}
                   placeholder="1234 Main St, Kansas City, MO 64111"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-500 placeholder:text-gray-500 placeholder:text-base"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
                   required
                 />
                 {addressError && (
@@ -218,11 +182,8 @@ const ContactForm = () => {
                   className="mt-1"
                 />
                 <div className="text-sm text-gray-600">
-                  By submitting this form, you agree to receive follow-up messages from 
-                  Cozy Home Partners. Text and data rates may apply. Message frequency varies. Reply 
-                  STOP to unsubscribe. See our{' '}
-                  <a href="/privacy-policy" className="text-blue-600 hover:underline">privacy policy</a>{' '}
-                  for more details.
+                  I agree to receive follow-up communications from Cozy Home Partners. See our{' '}
+                  <a href="/privacy-policy" className="text-blue-600 hover:underline">privacy policy</a>.
                 </div>
               </div>
 

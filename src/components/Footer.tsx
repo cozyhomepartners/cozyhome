@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -11,18 +11,12 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-bold mb-4">Cozy Home Partners</h3>
-            <p className="text-gray-400 mb-4">Kansas City Real Estate</p>
+            <p className="text-gray-400 mb-4">Kansas City Cash Home Buyers</p>
             <p className="text-gray-300 mb-6 max-w-md">
-              Your trusted Kansas City real estate partner, helping families find their perfect homes 
-              across all counties in the metro area. Local expertise, personalized service.
+              We buy houses for cash across the Kansas City metro area. 
+              Fast closings, fair offers, zero hassle.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Instagram size={20} />
-              </a>
               <a href="https://www.linkedin.com/company/cozy-home-partners" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
                 <Linkedin size={20} />
               </a>
@@ -54,7 +48,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              Copyright © 2025 Cozy Home Partners. All rights reserved.
+              Copyright © {new Date().getFullYear()} Cozy Home Partners. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
