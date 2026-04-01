@@ -3,6 +3,13 @@ import React from 'react';
 import { Star } from 'lucide-react';
 
 const Hero = () => {
+  const scrollToForm = () => {
+    const formSection = document.getElementById('hero-form');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative bg-gradient-to-br from-blue-50 to-white py-20">
       <div className="container mx-auto px-6">
@@ -20,8 +27,21 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed">
-              Cash home buyers serving <span className="text-blue-600 font-semibold">Kansas City</span>, <span className="text-blue-600 font-semibold">Liberty</span>, <span className="text-blue-600 font-semibold">Blue Springs</span>, <span className="text-blue-600 font-semibold">Lee Summit</span>, <span className="text-blue-600 font-semibold">Raytown</span>, <span className="text-blue-600 font-semibold">Lenexa</span>, <span className="text-blue-600 font-semibold">Olathe</span>, <span className="text-blue-600 font-semibold">Shawnee</span>, and <span className="text-blue-600 font-semibold">Prairie Village</span>. We buy houses for cash in KC and surrounding areas with no fees or closing costs.
+              Sell your Kansas City home for cash in as little as <span className="text-blue-600 font-semibold">7 days</span>. No fees. No repairs. No hassle. We serve the entire KC metro area.
             </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={scrollToForm}
+                className="bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                Get My Free Cash Offer
+              </button>
+              <div className="flex items-center gap-2 text-gray-600">
+                <span className="text-green-600 font-bold text-lg">✓</span>
+                <span>No obligation · Response in 24 hours</span>
+              </div>
+            </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">

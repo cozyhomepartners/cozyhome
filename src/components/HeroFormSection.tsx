@@ -4,7 +4,7 @@ import HeroContactForm from './HeroContactForm';
 
 const HeroFormSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section id="hero-form" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-xl mx-auto">
           <div className="text-center mb-12">
@@ -12,7 +12,7 @@ const HeroFormSection = () => {
               Get Your Cash Offer Today
             </h2>
             <p className="text-xl text-gray-600">
-              Fill out the form below and we'll provide you with a fair, no-obligation cash offer for your Kansas City home.
+              No showings, no repairs, no fees. Just a fair cash offer for your Kansas City home.
             </p>
           </div>
           <HeroContactForm />

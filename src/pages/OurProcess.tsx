@@ -78,6 +78,16 @@ const OurProcess = () => {
               with no hassles, no fees, and no surprises.
             </p>
 
+            <button
+              onClick={() => {
+                const form = document.getElementById('contact-form');
+                if (form) form.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl mb-8"
+            >
+              Start Now — Get Your Offer
+            </button>
+
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
               <div className="text-center">
                 <div className="text-3xl font-bold text-gray-900">24 Hours</div>

@@ -1,76 +1,30 @@
 
 import React, { useState } from 'react';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, AlertCircle, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-
-import { Textarea } from './ui/textarea';
 import { Checkbox } from './ui/checkbox';
-
-interface AddressData {
-  street: string;
-  unit: string;
-  city: string;
-  state: string;
-  zipcode: string;
-  fullAddress: string;
-}
 
 const HeroContactForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
     propertyAddress: '',
-    street: '',
-    unit: '',
-    city: '',
-    state: '',
-    zipcode: '',
-    message: ''
   });
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [addressError, setAddressError] = useState('');
   const [consentChecked, setConsentChecked] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleAddressSelect = (address: string) => {
-    setFormData({
-      ...formData,
-      propertyAddress: address
-    });
-    setAddressError('');
-  };
-
-  const handleDetailedAddressSelect = (addressData: AddressData) => {
-    setFormData({
-      ...formData,
-      propertyAddress: addressData.fullAddress,
-      street: addressData.street,
-      unit: addressData.unit,
-      city: addressData.city,
-      state: addressData.state,
-      zipcode: addressData.zipcode,
-    });
-    setAddressError('');
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Basic validation - check property address and consent
-    if (!formData.propertyAddress.trim()) {
-      setAddressError('Property address is required');
-      return;
-    }
 
     if (!consentChecked) {
       setStatus('consent-error');
@@ -84,23 +38,19 @@ const HeroContactForm = () => {
       const { data, error } = await supabase.functions.invoke('submit-contact-form', {
         body: {
           name: formData.name,
-          email: formData.email,
+          email: '',
           phone: formData.phone,
           propertyAddress: formData.propertyAddress,
-          street: formData.street,
-          unit: formData.unit,
-          city: formData.city,
-          state: formData.state,
-          zipcode: formData.zipcode,
-          message: formData.message
+          street: '',
+          unit: '',
+          city: '',
+          state: '',
+          zipcode: '',
+          message: ''
         }
       });
 
-      if (error) {
-        throw error;
-      }
-
-      console.log('Form submitted successfully:', data);
+      if (error) throw error;
       navigate('/thank-you');
     } catch (error) {
       console.error('Form submission error:', error);
@@ -112,73 +62,59 @@ const HeroContactForm = () => {
 
   return (
     <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8">
-      <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+      <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">
         Get Your Cash Offer
       </h3>
+      <p className="text-center text-gray-500 mb-6 text-sm">
+        Fill out 3 quick fields — we'll respond within 24 hours.
+      </p>
+
+      {/* Trust signals */}
+      <div className="flex flex-wrap justify-center gap-4 mb-6 text-sm text-gray-600">
+        <div className="flex items-center gap-1.5">
+          <CheckCircle size={16} className="text-green-500" />
+          <span>No obligation</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <CheckCircle size={16} className="text-green-500" />
+          <span>24hr response</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <CheckCircle size={16} className="text-green-500" />
+          <span>Zero fees</span>
+        </div>
+      </div>
       
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <input
-            type="text"
-            name="propertyAddress"
-            value={formData.propertyAddress}
-            onChange={(e) => {
-              handleAddressSelect(e.target.value);
-              setAddressError('');
-            }}
-            placeholder="Property Address"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-            required
-          />
-          {addressError && (
-            <p className="mt-1 text-sm text-red-600">{addressError}</p>
-          )}
-        </div>
+        <input
+          type="text"
+          name="propertyAddress"
+          value={formData.propertyAddress}
+          onChange={handleChange}
+          placeholder="Property Address"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
+          required
+        />
 
-        <div>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-            placeholder="Full Name"
-          />
-        </div>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
+          placeholder="Full Name"
+        />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-            placeholder="Phone Number"
-          />
-          
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-            placeholder="Email Address"
-          />
-        </div>
-
-        <div>
-          <Textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            rows={3}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-none placeholder:text-gray-500 placeholder:text-base"
-            placeholder="Tell us about your property or situation..."
-          />
-        </div>
+        <input
+          type="tel"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
+          placeholder="Phone Number"
+        />
 
         {/* Consent Checkbox */}
         <div className="flex items-start space-x-3">
@@ -188,11 +124,8 @@ const HeroContactForm = () => {
             className="mt-1"
           />
           <div className="text-sm text-gray-600">
-            By submitting this form, you agree to receive follow-up messages from 
-            Cozy Home Partners. Text and data rates may apply. Message frequency varies. Reply 
-            STOP to unsubscribe. See our{' '}
-            <a href="/privacy-policy" className="text-blue-600 hover:underline">privacy policy</a>{' '}
-            for more details.
+            I agree to receive follow-up communications from Cozy Home Partners. See our{' '}
+            <a href="/privacy-policy" className="text-blue-600 hover:underline">privacy policy</a>.
           </div>
         </div>
 

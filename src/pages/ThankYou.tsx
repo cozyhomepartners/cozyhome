@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CheckCircle, Home, Mail } from 'lucide-react';
+import { CheckCircle, Home, Mail, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ThankYou = () => {
@@ -12,12 +12,18 @@ const ThankYou = () => {
             <CheckCircle size={40} className="text-green-600" />
           </div>
           
-          <h1 className="text-4xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Thank You!
           </h1>
+
+          {/* Response time promise */}
+          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Clock size={16} />
+            <span>We'll contact you within 2 hours during business hours</span>
+          </div>
           
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            We have received your information and will get back to you shortly to schedule an appointment with a fair cash offer for your property.
+            We've received your property information and a team member will reach out shortly with a fair, no-obligation cash offer.
           </p>
           
           <div className="bg-blue-50 rounded-lg p-6 mb-8">
@@ -27,21 +33,32 @@ const ThankYou = () => {
                 <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                   <span className="text-white text-xs font-bold">1</span>
                 </div>
-                <p className="text-gray-700">We'll review your property information</p>
+                <p className="text-gray-700">We'll review your property details and research comparable sales</p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                   <span className="text-white text-xs font-bold">2</span>
                 </div>
-                <p className="text-gray-700">Schedule a convenient time for property walkthrough</p>
+                <p className="text-gray-700">A team member will contact you to schedule a walkthrough</p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                   <span className="text-white text-xs font-bold">3</span>
                 </div>
-                <p className="text-gray-700">Present you with a fair, no-obligation cash offer</p>
+                <p className="text-gray-700">You'll receive a fair, no-obligation cash offer — close in as few as 7 days</p>
               </div>
             </div>
+          </div>
+
+          {/* Learn more about the process */}
+          <div className="mb-8">
+            <Link 
+              to="/our-process"
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            >
+              <span>See Our Full Process</span>
+              <ArrowRight size={18} />
+            </Link>
           </div>
           
           <div className="space-y-4 mb-8">
