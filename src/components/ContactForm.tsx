@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-import AddressAutocomplete from './AddressAutocomplete';
+
 import { Checkbox } from './ui/checkbox';
 
 interface AddressData {
