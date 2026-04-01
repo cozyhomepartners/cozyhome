@@ -36,28 +36,49 @@ const handler = async (req: Request): Promise<Response> => {
     const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
     const formData: ContactFormData = await req.json();
-    console.log("Received form data:", formData);
+
+    // Input validation
+    if (!formData.name || typeof formData.name !== 'string' || formData.name.trim().length === 0 || formData.name.length > 200) {
+      return new Response(JSON.stringify({ error: "Invalid name" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    }
+    if (!formData.email || typeof formData.email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) || formData.email.length > 255) {
+      return new Response(JSON.stringify({ error: "Invalid email" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    }
+    if (!formData.phone || typeof formData.phone !== 'string' || formData.phone.trim().length === 0 || formData.phone.length > 30) {
+      return new Response(JSON.stringify({ error: "Invalid phone" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    }
+    if (!formData.propertyAddress || typeof formData.propertyAddress !== 'string' || formData.propertyAddress.trim().length === 0 || formData.propertyAddress.length > 500) {
+      return new Response(JSON.stringify({ error: "Invalid property address" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    }
+    if (formData.message && (typeof formData.message !== 'string' || formData.message.length > 2000)) {
+      return new Response(JSON.stringify({ error: "Invalid message" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    }
+
+    // Sanitize inputs
+    const sanitize = (val: string | undefined) => val ? val.trim().slice(0, 500) : null;
+
+    console.log("Received valid form submission");
 
     // Insert into database
     const { data, error } = await supabase
       .from("contact_submissions")
       .insert([
         {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          property_address: formData.propertyAddress,
-          street_address: formData.street || null,
-          unit: formData.unit || null,
-          city: formData.city || null,
-          state: formData.state || null,
-          zipcode: formData.zipcode || null,
+          name: formData.name.trim().slice(0, 200),
+          email: formData.email.trim().slice(0, 255),
+          phone: formData.phone.trim().slice(0, 30),
+          property_address: formData.propertyAddress.trim().slice(0, 500),
+          street_address: sanitize(formData.street),
+          unit: sanitize(formData.unit),
+          city: sanitize(formData.city),
+          state: sanitize(formData.state),
+          zipcode: sanitize(formData.zipcode),
         },
       ]);
 
     if (error) {
       console.error("Database error:", error);
-      throw new Error(`Database error: ${error.message}`);
+      throw new Error("Failed to save submission");
     }
 
     console.log("Form data saved to database successfully");
