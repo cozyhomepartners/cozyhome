@@ -83,31 +83,34 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Form data saved to database successfully");
 
+    // Escape HTML to prevent injection in email
+    const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
     // Send email notification using verified domain
     const emailResponse = await resend.emails.send({
       from: "Cozy Home Partners <onboarding@resend.dev>",
       to: ["charles@cozyhomepartners.com"],
-      subject: `Inbound - ${formData.propertyAddress}`,
+      subject: `Inbound - ${esc(formData.propertyAddress)}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${formData.name}</p>
-        <p><strong>Email:</strong> ${formData.email}</p>
-        <p><strong>Phone:</strong> ${formData.phone}</p>
-        <p><strong>Property Address:</strong> ${formData.propertyAddress}</p>
+        <p><strong>Name:</strong> ${esc(formData.name)}</p>
+        <p><strong>Email:</strong> ${esc(formData.email)}</p>
+        <p><strong>Phone:</strong> ${esc(formData.phone)}</p>
+        <p><strong>Property Address:</strong> ${esc(formData.propertyAddress)}</p>
         
         <h3>Detailed Address Information:</h3>
-        ${formData.street ? `<p><strong>Street Address:</strong> ${formData.street}</p>` : ''}
-        ${formData.unit ? `<p><strong>Unit/Apt:</strong> ${formData.unit}</p>` : ''}
-        ${formData.city ? `<p><strong>City:</strong> ${formData.city}</p>` : ''}
-        ${formData.state ? `<p><strong>State:</strong> ${formData.state}</p>` : ''}
-        ${formData.zipcode ? `<p><strong>Zip Code:</strong> ${formData.zipcode}</p>` : ''}
+        ${formData.street ? `<p><strong>Street Address:</strong> ${esc(formData.street)}</p>` : ''}
+        ${formData.unit ? `<p><strong>Unit/Apt:</strong> ${esc(formData.unit)}</p>` : ''}
+        ${formData.city ? `<p><strong>City:</strong> ${esc(formData.city)}</p>` : ''}
+        ${formData.state ? `<p><strong>State:</strong> ${esc(formData.state)}</p>` : ''}
+        ${formData.zipcode ? `<p><strong>Zip Code:</strong> ${esc(formData.zipcode)}</p>` : ''}
         
-        ${formData.message ? `<p><strong>Message:</strong> ${formData.message}</p>` : ''}
+        ${formData.message ? `<p><strong>Message:</strong> ${esc(formData.message)}</p>` : ''}
         <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
       `,
     });
 
-    console.log("Email sent successfully:", emailResponse);
+    console.log("Email sent successfully");
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
@@ -119,7 +122,7 @@ const handler = async (req: Request): Promise<Response> => {
   } catch (error: any) {
     console.error("Error in submit-contact-form function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: "An error occurred processing your request" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
