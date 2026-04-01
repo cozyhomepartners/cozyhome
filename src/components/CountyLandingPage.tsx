@@ -61,10 +61,19 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed">
-                Looking to sell your house fast in <span className="text-blue-600 font-semibold">{countyName}</span>? 
-                We are trusted cash home buyers in <span className="text-blue-600 font-semibold">{countyName}</span> offering 
-                hassle-free sales with no fees or closing costs.
+                Sell your house fast in <span className="text-blue-600 font-semibold">{countyName}</span> for cash. 
+                No fees, no repairs, no hassle. We close in as little as 7 days.
               </p>
+
+              <button
+                onClick={() => {
+                  const form = document.getElementById('hero-form');
+                  if (form) form.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                Get My Free Cash Offer
+              </button>
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
