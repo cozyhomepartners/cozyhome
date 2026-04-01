@@ -118,15 +118,21 @@ const HeroContactForm = () => {
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <AddressAutocomplete
+          <input
+            type="text"
+            name="propertyAddress"
             value={formData.propertyAddress}
-            onChange={handleAddressSelect}
-            onAddressSelect={handleDetailedAddressSelect}
+            onChange={(e) => {
+              handleAddressSelect(e.target.value);
+              setAddressError('');
+            }}
             placeholder="Property Address"
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
             required
-            error={addressError}
           />
+          {addressError && (
+            <p className="mt-1 text-sm text-red-600">{addressError}</p>
+          )}
         </div>
 
         <div>
