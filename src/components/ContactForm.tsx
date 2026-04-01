@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-import AddressAutocomplete from './AddressAutocomplete';
+
 import { Checkbox } from './ui/checkbox';
 
 interface AddressData {
@@ -128,15 +128,21 @@ const ContactForm = () => {
                 <label htmlFor="propertyAddress" className="block text-sm font-medium text-gray-700 mb-2">
                   Property Address *
                 </label>
-                <AddressAutocomplete
+                <input
+                  type="text"
+                  name="propertyAddress"
                   value={formData.propertyAddress}
-                  onChange={handleAddressSelect}
-                  onAddressSelect={handleDetailedAddressSelect}
+                  onChange={(e) => {
+                    handleAddressSelect(e.target.value);
+                    setAddressError('');
+                  }}
                   placeholder="1234 Main St, Kansas City, MO 64111"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-500 placeholder:text-gray-500 placeholder:text-base"
                   required
-                  error={addressError}
                 />
+                {addressError && (
+                  <p className="mt-1 text-sm text-red-600">{addressError}</p>
+                )}
               </div>
 
               <div>
