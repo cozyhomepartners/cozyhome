@@ -81,7 +81,7 @@ const Header = () => {
               onClick={scrollToForm}
               className="hidden md:inline-flex bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-5 rounded-lg font-semibold text-sm transition-all duration-200"
             >
-              Get My Cash Offer
+              Get My Offer
             </button>
 
             {/* Mobile Navigation */}

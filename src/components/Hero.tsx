@@ -35,7 +35,7 @@ const Hero = () => {
                 onClick={scrollToForm}
                 className="bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
               >
-                Get My Free Cash Offer
+                Get My Cash Offer
               </button>
               <div className="flex items-center gap-2 text-gray-600">
                 <span className="text-green-600 font-bold text-lg">✓</span>
