@@ -67,7 +67,7 @@ const HeroContactForm = () => {
         Get Your Cash Offer
       </h3>
       <p className="text-center text-gray-500 mb-6 text-sm">
-        Fill out 3 quick fields — we'll respond within 24 hours.
+        Fill out a few quick fields — we'll respond within 24 hours.
       </p>
 
       {/* Trust signals */}
