@@ -9,6 +9,7 @@ const HeroContactForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     phone: '',
     propertyAddress: '',
   });
