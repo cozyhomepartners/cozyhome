@@ -39,7 +39,7 @@ const HeroContactForm = () => {
       const { data, error } = await supabase.functions.invoke('submit-contact-form', {
         body: {
           name: formData.name,
-          email: '',
+          email: formData.email,
           phone: formData.phone,
           propertyAddress: formData.propertyAddress,
           street: '',
