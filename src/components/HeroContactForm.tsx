@@ -108,6 +108,16 @@ const HeroContactForm = () => {
         />
 
         <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
+          placeholder="Email Address"
+        />
+
+        <input
           type="tel"
           name="phone"
           value={formData.phone}
