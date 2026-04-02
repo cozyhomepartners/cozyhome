@@ -9,6 +9,7 @@ const HeroContactForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     phone: '',
     propertyAddress: '',
   });
@@ -38,7 +39,7 @@ const HeroContactForm = () => {
       const { data, error } = await supabase.functions.invoke('submit-contact-form', {
         body: {
           name: formData.name,
-          email: '',
+          email: formData.email,
           phone: formData.phone,
           propertyAddress: formData.propertyAddress,
           street: '',
@@ -66,7 +67,7 @@ const HeroContactForm = () => {
         Get Your Cash Offer
       </h3>
       <p className="text-center text-gray-500 mb-6 text-sm">
-        Fill out 3 quick fields — we'll respond within 24 hours.
+        Fill out a few quick fields — we'll respond within 24 hours.
       </p>
 
       {/* Trust signals */}
@@ -104,6 +105,16 @@ const HeroContactForm = () => {
           required
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
           placeholder="Full Name"
+        />
+
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
+          placeholder="Email Address"
         />
 
         <input
