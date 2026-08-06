@@ -24,7 +24,7 @@ const MobileNavigation = ({ counties }: MobileNavigationProps) => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <button className="md:hidden">
+        <button className="md:hidden" aria-label="Open menu">
           <Menu className="h-6 w-6 text-gray-700" />
         </button>
       </DrawerTrigger>

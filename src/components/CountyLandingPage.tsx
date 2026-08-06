@@ -33,7 +33,7 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
   return (
     <div className="min-h-screen">
       <SEOHead
-        title={`We Buy Houses in ${countyName}, ${state} - Fast Cash Home Buyers | Cozy Home Partners`}
+        title={`We Buy Houses in ${countyName}, ${state} | Cozy Home Partners`}
         description={`We buy houses in ${countyName}, ${state} for cash! Get a fair offer in 24 hours. No fees, no repairs needed. Trusted cash home buyers serving ${countyName}.`}
         keywords={`we buy houses, cash home buyers, sell house fast, ${countyName}, ${state}, real estate, home buyers`}
         canonicalUrl={canonicalUrl}
