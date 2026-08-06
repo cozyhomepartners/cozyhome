@@ -2,11 +2,18 @@
 import React from 'react';
 import { CheckCircle, Home, Mail, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEOHead from '@/components/SEOHead';
 
 const ThankYou = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white flex items-center justify-center px-6">
+      <SEOHead
+        title="Thank You — Your Cash Offer Request | Cozy Home Partners"
+        description="Thanks for reaching out. We received your property details and will follow up shortly with a fair, no-obligation cash offer."
+        canonicalUrl="https://www.cozyhomepartners.com/thank-you"
+      />
       <div className="max-w-2xl mx-auto text-center">
+
         <div className="bg-white rounded-2xl shadow-2xl p-8 lg:p-12">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
             <CheckCircle size={40} className="text-green-600" />
