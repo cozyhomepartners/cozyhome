@@ -2,11 +2,18 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/SEOHead';
 
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Terms of Service | Cozy Home Partners"
+        description="The terms that govern your use of the Cozy Home Partners website and our cash home buying services in the Kansas City metro area."
+        canonicalUrl="https://www.cozyhomepartners.com/terms-of-service"
+      />
       <Header />
+
       
       <div className="container mx-auto px-6 py-20">
         <div className="max-w-4xl mx-auto">

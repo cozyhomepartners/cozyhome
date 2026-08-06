@@ -56,10 +56,10 @@ const OurProcess = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Our Process - How We Buy Houses in Kansas City | Cozy Home Partners"
+        title="Our 5-Step Home Buying Process | Cozy Home Partners"
         description="Learn about our simple 5-step process for buying houses in Kansas City. Get a cash offer in 24 hours with no fees, repairs, or hassles."
         keywords="how we buy houses, cash home buying process, sell house process, Kansas City"
-        canonicalUrl="https://cozyhomepartners.com/our-process"
+        canonicalUrl="https://www.cozyhomepartners.com/our-process"
       />
       
       <Header />

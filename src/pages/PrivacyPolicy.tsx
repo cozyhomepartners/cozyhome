@@ -2,11 +2,18 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/SEOHead';
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Privacy Policy | Cozy Home Partners"
+        description="How Cozy Home Partners collects, uses, and protects the information you share when requesting a cash offer on your Kansas City area home."
+        canonicalUrl="https://www.cozyhomepartners.com/privacy-policy"
+      />
       <Header />
+
       
       <div className="container mx-auto px-6 py-20">
         <div className="max-w-4xl mx-auto">

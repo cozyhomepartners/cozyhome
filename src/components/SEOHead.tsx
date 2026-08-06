@@ -55,7 +55,8 @@ const SEOHead = ({
             "name": "Cozy Home Partners",
             "description": `We buy houses in ${countyName}, ${state} for cash! Fast, fair offers with no fees or closing costs.`,
             "url": canonicalUrl,
-            "telephone": "",
+            "telephone": "+1-847-809-3322",
+            "image": imageUrl,
             "email": "offer@cozyhomepartners.com",
             "address": {
               "@type": "PostalAddress",
