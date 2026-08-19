@@ -19,13 +19,15 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				serif: ['"Source Serif 4"', 'Georgia', 'serif'],
-				sans: ['"Source Sans 3"', 'system-ui', 'sans-serif']
+				display: ['Urbanist', 'system-ui', 'sans-serif'],
+				serif: ['Urbanist', 'system-ui', 'sans-serif'],
+				sans: ['Epilogue', 'system-ui', 'sans-serif']
 			},
 			colors: {
 				brand: {
 					DEFAULT: 'hsl(var(--brand))',
 					dark: 'hsl(var(--brand-dark))',
+					accent: 'hsl(var(--brand-accent))',
 					soft: 'hsl(var(--brand-soft))',
 					foreground: 'hsl(var(--brand-foreground))'
 				},
