@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, MapPin, Linkedin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -16,11 +16,6 @@ const Footer = () => {
               We buy houses for cash across the Kansas City metro area. 
               Fast closings, fair offers, zero hassle.
             </p>
-            <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/company/cozy-home-partners" target="_blank" rel="noopener noreferrer" aria-label="Cozy Home Partners on LinkedIn" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-brand transition-colors">
-                <Linkedin size={20} />
-              </a>
-            </div>
           </div>
 
           {/* Contact Info */}
