@@ -14,31 +14,31 @@ const OurProcess = () => {
   const steps = [
     {
       number: "01",
-      title: "Contact Us",
+      title: "Send Us the Address",
       description: "Fill out our form with the property address. It takes about a minute, and there is no obligation of any kind.",
       icon: <FileText className="w-8 h-8 text-brand" />
     },
     {
       number: "02", 
-      title: "Property Evaluation",
+      title: "One Quick Visit",
       description: "We stop by once, at a time that suits you, usually for under 30 minutes. No open houses, no strangers, and nothing to clean or fix beforehand.",
       icon: <Home className="w-8 h-8 text-brand" />
     },
     {
       number: "03",
-      title: "Receive Your Offer",
+      title: "Get Your Written Offer",
       description: "Within 24 hours you get a fair cash offer in writing, with the number explained. No commissions, no closing costs, no hidden fees.",
       icon: <DollarSign className="w-8 h-8 text-brand" />
     },
     {
       number: "04",
-      title: "Accept & Schedule Closing",
+      title: "You Pick the Closing Date",
       description: "If the number works, you pick the closing date. Close in as little as 7 days, or take a few months if you need time to move.",
       icon: <Clock className="w-8 h-8 text-brand" />
     },
     {
       number: "05",
-      title: "Get Your Cash",
+      title: "Get Paid",
       description: "You get paid at closing. Our funds are our own, so there is no lender, no appraisal and no last-minute collapse.",
       icon: <Key className="w-8 h-8 text-brand" />
     }
