@@ -3,6 +3,7 @@ import React from 'react';
 import { Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MobileNavigation from './MobileNavigation';
+import { scrollToOfferForm } from '@/lib/scrollToForm';
 
 const Header = () => {
   const counties = [
@@ -14,12 +15,7 @@ const Header = () => {
     { name: "Platte County, KS", path: "/platte-county-ks" },
   ];
 
-  const scrollToForm = () => {
-    const formSection = document.getElementById('hero-form') || document.getElementById('contact-form');
-    if (formSection) {
-      formSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -42,20 +38,20 @@ const Header = () => {
             <div className="hidden md:flex items-center space-x-8">
               <Link 
                 to="/" 
-                className="text-gray-700 font-medium hover:text-blue-600 transition-colors"
+                className="text-ink font-medium hover:text-brand transition-colors"
               >
                 Home
               </Link>
               <Link 
                 to="/our-process" 
-                className="text-gray-700 font-medium hover:text-blue-600 transition-colors"
+                className="text-ink font-medium hover:text-brand transition-colors"
               >
                 Our Process
               </Link>
               
               {/* Service Areas Navigation - hover only */}
               <div className="relative group">
-                <span className="text-gray-700 font-medium cursor-default text-base">
+                <span className="text-ink font-medium cursor-default text-base">
                   Service Areas
                 </span>
                 <div className="absolute top-full left-0 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -65,9 +61,9 @@ const Header = () => {
                         <Link
                           key={county.path}
                           to={county.path}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-50 hover:text-blue-600"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface hover:text-brand"
                         >
-                          <div className="text-sm font-medium leading-none">{county.name}</div>
+                          <div className="text-base font-medium leading-none">{county.name}</div>
                         </Link>
                       ))}
                     </div>
@@ -78,10 +74,10 @@ const Header = () => {
 
             {/* CTA Button */}
             <button
-              onClick={scrollToForm}
-              className="hidden md:inline-flex bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-5 rounded-lg font-semibold text-sm transition-all duration-200"
+              onClick={scrollToOfferForm}
+              className="hidden md:inline-flex bg-brand hover:bg-brand-dark text-brand-foreground py-3 px-5 rounded-lg font-semibold text-base transition-all duration-200"
             >
-              Get My Offer
+              Get My Cash Offer
             </button>
 
             {/* Mobile Navigation */}

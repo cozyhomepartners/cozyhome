@@ -25,7 +25,7 @@ const MobileNavigation = ({ counties }: MobileNavigationProps) => {
     <Drawer>
       <DrawerTrigger asChild>
         <button className="md:hidden" aria-label="Open menu">
-          <Menu className="h-6 w-6 text-gray-700" />
+          <Menu className="h-6 w-6 text-ink" />
         </button>
       </DrawerTrigger>
       <DrawerContent>
@@ -36,7 +36,7 @@ const MobileNavigation = ({ counties }: MobileNavigationProps) => {
           <DrawerClose asChild>
             <Link 
               to="/" 
-              className="block text-gray-700 font-medium hover:text-blue-600 transition-colors py-2"
+              className="block text-ink font-medium hover:text-brand transition-colors py-2"
             >
               Home
             </Link>
@@ -44,19 +44,19 @@ const MobileNavigation = ({ counties }: MobileNavigationProps) => {
           <DrawerClose asChild>
             <Link 
               to="/our-process" 
-              className="block text-gray-700 font-medium hover:text-blue-600 transition-colors py-2"
+              className="block text-ink font-medium hover:text-brand transition-colors py-2"
             >
               Our Process
             </Link>
           </DrawerClose>
           
           <div className="border-t pt-4">
-            <h3 className="text-gray-900 font-semibold mb-2">Service Areas</h3>
+            <h3 className="text-ink font-semibold mb-2">Service Areas</h3>
             {counties.map((county) => (
               <DrawerClose key={county.path} asChild>
                 <Link
                   to={county.path}
-                  className="block text-gray-600 hover:text-blue-600 transition-colors py-1 pl-4"
+                  className="block text-ink-soft hover:text-brand transition-colors py-1 pl-4"
                 >
                   {county.name}
                 </Link>

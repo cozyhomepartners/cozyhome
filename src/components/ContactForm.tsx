@@ -1,9 +1,13 @@
-
 import React, { useState } from 'react';
-import { Send, AlertCircle } from 'lucide-react';
+import { Send, AlertCircle, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Checkbox } from './ui/checkbox';
+
+const fieldClass =
+  "w-full px-4 py-3 text-lg text-ink bg-white border-2 border-input rounded-lg focus:border-brand focus:outline-none placeholder:text-ink-soft/60";
+
+const labelClass = "block text-base font-semibold text-ink mb-1.5";
 
 const ContactForm = () => {
   const navigate = useNavigate();
@@ -12,11 +16,6 @@ const ContactForm = () => {
     email: '',
     phone: '',
     propertyAddress: '',
-    street: '',
-    unit: '',
-    city: '',
-    state: '',
-    zipcode: '',
     message: ''
   });
   const [status, setStatus] = useState('');
@@ -33,9 +32,9 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.propertyAddress.trim()) {
-      setAddressError('Property address is required');
+      setAddressError('Please enter the property address.');
       return;
     }
 
@@ -48,17 +47,17 @@ const ContactForm = () => {
     setStatus('');
 
     try {
-      const { data, error } = await supabase.functions.invoke('submit-contact-form', {
+      const { error } = await supabase.functions.invoke('submit-contact-form', {
         body: {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
           propertyAddress: formData.propertyAddress,
-          street: formData.street,
-          unit: formData.unit,
-          city: formData.city,
-          state: formData.state,
-          zipcode: formData.zipcode,
+          street: '',
+          unit: '',
+          city: '',
+          state: '',
+          zipcode: '',
           message: formData.message
         }
       });
@@ -74,117 +73,149 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact-form" className="py-20 bg-gray-900">
+    <section id="contact-form" className="py-20 bg-ink scroll-mt-28">
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Ready to Get Your Cash Offer?
+          <div className="text-center mb-10">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+              Ready to see your number?
             </h2>
-            <p className="text-xl text-gray-300">
-              Tell us about your property and we'll get back to you with a fair, no-obligation offer within 24 hours.
+            <p className="text-xl text-white/80 leading-relaxed">
+              Tell us about the property. We reply within 24 hours with a fair,
+              no-obligation cash offer — and there is nothing to sign to see it.
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-2xl p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <input
-                type="text"
-                name="propertyAddress"
-                value={formData.propertyAddress}
-                onChange={(e) => {
-                  setFormData({ ...formData, propertyAddress: e.target.value });
-                  setAddressError('');
-                }}
-                placeholder="Property Address"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-                required
-              />
-              {addressError && (
-                <p className="mt-1 text-sm text-red-600">{addressError}</p>
-              )}
+          <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8">
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mb-6 text-base text-ink-soft">
+              {['No obligation', '24hr response', 'Zero fees'].map((signal) => (
+                <div key={signal} className="flex items-center gap-1.5">
+                  <CheckCircle size={18} className="text-success flex-shrink-0" />
+                  <span>{signal}</span>
+                </div>
+              ))}
+            </div>
 
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-                placeholder="Full Name"
-              />
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="cf-address" className={labelClass}>Property address</label>
+                <input
+                  id="cf-address"
+                  type="text"
+                  name="propertyAddress"
+                  value={formData.propertyAddress}
+                  onChange={(e) => {
+                    setFormData({ ...formData, propertyAddress: e.target.value });
+                    setAddressError('');
+                  }}
+                  placeholder="123 Main St, Kansas City, MO"
+                  className={fieldClass}
+                  required
+                />
+                {addressError && (
+                  <p className="mt-1.5 text-base text-destructive">{addressError}</p>
+                )}
+              </div>
 
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-                placeholder="Email Address"
-              />
+              <div>
+                <label htmlFor="cf-name" className={labelClass}>Full name</label>
+                <input
+                  id="cf-name"
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className={fieldClass}
+                  placeholder="Jane Smith"
+                />
+              </div>
 
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-                placeholder="Phone Number"
-              />
+              <div>
+                <label htmlFor="cf-email" className={labelClass}>Email address</label>
+                <input
+                  id="cf-email"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className={fieldClass}
+                  placeholder="you@example.com"
+                />
+              </div>
 
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={4}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-                placeholder="Tell us about your property or situation..."
-              />
+              <div>
+                <label htmlFor="cf-phone" className={labelClass}>Phone number</label>
+                <input
+                  id="cf-phone"
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className={fieldClass}
+                  placeholder="(816) 555-0134"
+                />
+              </div>
 
-              {/* Consent Checkbox */}
-              <div className="flex items-start space-x-3">
-                <Checkbox 
+              <div>
+                <label htmlFor="cf-message" className={labelClass}>
+                  Anything we should know? <span className="font-normal text-ink-soft">(optional)</span>
+                </label>
+                <textarea
+                  id="cf-message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className={fieldClass}
+                  placeholder="Condition, timeline, tenants, or anything else."
+                />
+              </div>
+
+              <div className="flex items-start space-x-3 pt-1">
+                <Checkbox
+                  id="cf-consent"
                   checked={consentChecked}
                   onCheckedChange={(checked) => setConsentChecked(checked === true)}
                   className="mt-1"
                 />
-                <div className="text-sm text-gray-600">
+                <label htmlFor="cf-consent" className="text-base text-ink-soft leading-snug cursor-pointer">
                   I agree to receive follow-up communications from Cozy Home Partners. See our{' '}
-                  <a href="/privacy-policy" className="text-blue-600 hover:underline">privacy policy</a>.
-                </div>
+                  <a href="/privacy-policy" className="text-brand underline">privacy policy</a>.
+                </label>
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-200"
+                className="w-full bg-brand hover:bg-brand-dark disabled:opacity-60 text-brand-foreground py-4 px-6 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 transition-colors"
               >
                 {isSubmitting ? (
                   <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
                     <span>Sending...</span>
                   </>
                 ) : (
                   <>
-                    <Send size={18} />
+                    <Send size={20} />
                     <span>Get My Cash Offer</span>
                   </>
                 )}
               </button>
 
               {status === 'error' && (
-                <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg">
-                  <AlertCircle size={18} />
-                  <span className="text-sm">Error sending message. Please try again.</span>
+                <div className="flex items-center gap-2 text-destructive bg-destructive/10 p-3 rounded-lg">
+                  <AlertCircle size={20} />
+                  <span className="text-base">Something went wrong. Please try again.</span>
                 </div>
               )}
-              
+
               {status === 'consent-error' && (
-                <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg">
-                  <AlertCircle size={18} />
-                  <span className="text-sm">Please agree to receive follow-up messages to continue.</span>
+                <div className="flex items-center gap-2 text-destructive bg-destructive/10 p-3 rounded-lg">
+                  <AlertCircle size={20} />
+                  <span className="text-base">Please check the consent box to continue.</span>
                 </div>
               )}
             </form>

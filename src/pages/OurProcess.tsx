@@ -14,33 +14,33 @@ const OurProcess = () => {
   const steps = [
     {
       number: "01",
-      title: "Contact Us",
-      description: "Give us a call or fill out our form to tell us about your property. We'll ask a few questions about your house and situation.",
-      icon: <FileText className="w-8 h-8 text-blue-600" />
+      title: "Send Us the Address",
+      description: "Fill out our form with the property address. It takes about a minute, and there is no obligation of any kind.",
+      icon: <FileText className="w-8 h-8 text-brand" />
     },
     {
       number: "02", 
-      title: "Property Evaluation",
-      description: "We'll schedule a convenient time to view your property. Our team will assess the condition and location to determine a fair offer.",
-      icon: <Home className="w-8 h-8 text-blue-600" />
+      title: "One Quick Visit",
+      description: "We stop by once, at a time that suits you, usually for under 30 minutes. No open houses, no strangers, and nothing to clean or fix beforehand.",
+      icon: <Home className="w-8 h-8 text-brand" />
     },
     {
       number: "03",
-      title: "Receive Your Offer",
-      description: "Within 24 hours, we'll present you with a no-obligation cash offer. No hidden fees, no commissions, no closing costs.",
-      icon: <DollarSign className="w-8 h-8 text-blue-600" />
+      title: "Get Your Written Offer",
+      description: "Within 24 hours you get a fair cash offer in writing, with the number explained. No commissions, no closing costs, no hidden fees.",
+      icon: <DollarSign className="w-8 h-8 text-brand" />
     },
     {
       number: "04",
-      title: "Accept & Schedule Closing",
-      description: "If you accept our offer, we'll work with you to schedule a closing date that works for your timeline. Close in as little as 7 days.",
-      icon: <Clock className="w-8 h-8 text-blue-600" />
+      title: "You Pick the Closing Date",
+      description: "If the number works, you pick the closing date. Close in as little as 7 days, or take a few months if you need time to move.",
+      icon: <Clock className="w-8 h-8 text-brand" />
     },
     {
       number: "05",
-      title: "Get Your Cash",
-      description: "At closing, you'll receive your cash payment. It's that simple! No waiting for buyer financing or deal complications.",
-      icon: <Key className="w-8 h-8 text-blue-600" />
+      title: "Get Paid",
+      description: "You get paid at closing. Our funds are our own, so there is no lender, no appraisal and no last-minute collapse.",
+      icon: <Key className="w-8 h-8 text-brand" />
     }
   ];
 
@@ -50,7 +50,7 @@ const OurProcess = () => {
     "No repairs or renovations needed",
     "Close on your timeline",
     "Cash payment at closing",
-    "No showings or open houses"
+    "One private visit — no showings or open houses"
   ];
 
   return (
@@ -65,17 +65,16 @@ const OurProcess = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-white py-20">
+      <section className="relative bg-gradient-to-br from-brand-soft to-white py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 className="text-5xl lg:text-6xl font-bold text-ink leading-tight mb-6">
               Our Simple 
-              <span className="text-blue-600 block">5-Step Process</span>
+              <span className="text-brand block">5-Step Process</span>
             </h1>
             
-            <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Selling your house has never been easier. Our streamlined process gets you cash fast, 
-              with no hassles, no fees, and no surprises.
+            <p className="text-xl text-ink-soft leading-relaxed mb-8">
+              A clear alternative to listing on the MLS: no repairs, no showings beyond one quick visit, and a firm cash offer within 24 hours.
             </p>
 
             <button
@@ -83,23 +82,23 @@ const OurProcess = () => {
                 const form = document.getElementById('contact-form');
                 if (form) form.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl mb-8"
+              className="bg-brand hover:bg-brand-dark text-white py-4 px-8 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl mb-8"
             >
-              Start Now — Get Your Offer
+              Get My Cash Offer
             </button>
 
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">24 Hours</div>
-                <div className="text-gray-600">For Your Offer</div>
+                <div className="text-3xl font-bold text-ink">24 Hours</div>
+                <div className="text-ink-soft">For Your Offer</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">7 Days</div>
-                <div className="text-gray-600">To Close</div>
+                <div className="text-3xl font-bold text-ink">7 Days</div>
+                <div className="text-ink-soft">To Close</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">$0</div>
-                <div className="text-gray-600">Fees or Commissions</div>
+                <div className="text-3xl font-bold text-ink">$0</div>
+                <div className="text-ink-soft">Fees or Commissions</div>
               </div>
             </div>
           </div>
@@ -110,12 +109,11 @@ const OurProcess = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-ink mb-4">
               How It Works
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              From initial contact to cash in hand, our process is designed to be fast, 
-              transparent, and stress-free.
+            <p className="text-lg text-ink-soft max-w-2xl mx-auto">
+              From the first form to cash in hand. Every step is on your timeline, and you can stop at any point.
             </p>
           </div>
 
@@ -125,7 +123,7 @@ const OurProcess = () => {
                 <div className="flex items-start mb-12">
                   {/* Step Number */}
                   <div className="flex-shrink-0 relative">
-                    <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                    <div className="w-16 h-16 bg-brand text-white rounded-full flex items-center justify-center text-xl font-bold">
                       {step.number}
                     </div>
                     {index < steps.length - 1 && (
@@ -141,10 +139,10 @@ const OurProcess = () => {
                           {step.icon}
                         </div>
                         <div>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                          <h3 className="text-2xl font-bold text-ink mb-3">
                             {step.title}
                           </h3>
-                          <p className="text-gray-600 text-lg leading-relaxed">
+                          <p className="text-ink-soft text-lg leading-relaxed">
                             {step.description}
                           </p>
                         </div>
@@ -159,23 +157,23 @@ const OurProcess = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-surface">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-ink mb-4">
                 Why Choose Our Process?
               </h2>
-              <p className="text-lg text-gray-600">
-                We've eliminated the traditional hassles of selling your home
+              <p className="text-lg text-ink-soft">
+                Everything a traditional MLS listing asks of you, removed
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-center space-x-3 bg-white p-6 rounded-lg shadow-sm">
-                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-800 font-medium">{benefit}</span>
+                  <CheckCircle className="w-6 h-6 text-success flex-shrink-0" />
+                  <span className="text-ink font-medium">{benefit}</span>
                 </div>
               ))}
             </div>
