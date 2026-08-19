@@ -76,15 +76,15 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
 
               <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border">
                 <div>
-                  <div className="text-3xl font-bold text-ink font-serif">24 hrs</div>
+                  <div className="text-3xl font-bold text-ink font-display">24 hrs</div>
                   <div className="text-ink-soft text-base">To your offer</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-ink font-serif">7 days</div>
+                  <div className="text-3xl font-bold text-ink font-display">7 days</div>
                   <div className="text-ink-soft text-base">Possible closing</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-ink font-serif">$0</div>
+                  <div className="text-3xl font-bold text-ink font-display">$0</div>
                   <div className="text-ink-soft text-base">Fees or commission</div>
                 </div>
               </div>
