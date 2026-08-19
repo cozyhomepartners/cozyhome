@@ -82,7 +82,7 @@ const ContactForm = () => {
             </h2>
             <p className="text-xl text-white/80 leading-relaxed">
               Tell us about the property. We reply within 24 hours with a fair,
-              no-obligation cash offer — and there is nothing to sign to see it.
+              no-obligation cash offer, and there is nothing to sign to see it.
             </p>
           </div>
 

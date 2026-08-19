@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Menu } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Drawer,
   DrawerClose,
@@ -14,6 +14,13 @@ import { useIsMobile } from "../hooks/use-mobile";
 
 const MobileNavigation = () => {
   const isMobile = useIsMobile();
+  const location = useLocation();
+
+  const handleHomeClick = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   if (!isMobile) return null;
 
@@ -32,6 +39,7 @@ const MobileNavigation = () => {
           <DrawerClose asChild>
             <Link 
               to="/" 
+              onClick={handleHomeClick}
               className="block text-ink font-medium hover:text-brand transition-colors py-2"
             >
               Home

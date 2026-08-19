@@ -7,7 +7,7 @@ const steps = [
     n: '01',
     icon: FileText,
     title: 'Tell us the address',
-    body: 'Fill in four fields. No account, no paperwork, no credit check — just enough for us to start pulling comparable sales.',
+    body: 'Fill in four fields. No account, no paperwork, no credit check. Just enough for us to start pulling comparable sales.',
   },
   {
     n: '02',

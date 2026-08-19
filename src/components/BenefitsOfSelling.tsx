@@ -25,7 +25,7 @@ const benefits = [
     icon: Wrench,
     title: 'Repairs are our problem',
     description:
-      'Roof, foundation, dated kitchen, a basement full of things you would rather not move — leave all of it. We handle it after closing.',
+      'Roof, foundation, dated kitchen, a basement full of things you would rather not move. Leave all of it, We handle it after closing.',
   },
 ];
 

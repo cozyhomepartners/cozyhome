@@ -8,7 +8,7 @@ const ThankYou = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-soft to-white flex items-center justify-center px-6">
       <SEOHead
-        title="Thank You — Your Cash Offer Request | Cozy Home Partners"
+        title="Thank You for Your Cash Offer Request | Cozy Home Partners"
         description="Thanks for reaching out. We received your property details and will follow up shortly with a fair, no-obligation cash offer."
         canonicalUrl="https://www.cozyhomepartners.com/thank-you"
       />
@@ -52,7 +52,7 @@ const ThankYou = () => {
                 <div className="w-6 h-6 bg-brand rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                   <span className="text-white text-xs font-bold">3</span>
                 </div>
-                <p className="text-ink">You'll receive a fair, no-obligation cash offer — close in as few as 7 days</p>
+                <p className="text-ink">You'll receive a fair, no-obligation cash offer, and you can close in as few as 7 days</p>
               </div>
             </div>
           </div>
