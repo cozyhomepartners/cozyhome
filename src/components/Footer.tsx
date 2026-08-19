@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-ink text-white">
       <div className="container mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Company Info */}
@@ -17,7 +17,7 @@ const Footer = () => {
               Fast closings, fair offers, zero hassle.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/company/cozy-home-partners" target="_blank" rel="noopener noreferrer" aria-label="Cozy Home Partners on LinkedIn" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a href="https://www.linkedin.com/company/cozy-home-partners" target="_blank" rel="noopener noreferrer" aria-label="Cozy Home Partners on LinkedIn" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-brand transition-colors">
                 <Linkedin size={20} />
               </a>
             </div>
@@ -28,14 +28,14 @@ const Footer = () => {
             <h4 className="text-xl font-semibold mb-6">Contact Info</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <Mail size={18} className="text-blue-400 mt-1" />
+                <Mail size={18} className="text-brand-soft mt-1" />
                 <div>
                   <p className="font-medium">offer@cozyhomepartners.com</p>
                   <p className="text-gray-400 text-sm">Quick response guaranteed</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin size={18} className="text-blue-400 mt-1" />
+                <MapPin size={18} className="text-brand-soft mt-1" />
                 <div>
                   <p className="font-medium">Kansas City Metro Area</p>
                   <p className="text-gray-400 text-sm">All surrounding counties</p>
