@@ -1,9 +1,13 @@
-
 import React, { useState } from 'react';
 import { Send, AlertCircle, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Checkbox } from './ui/checkbox';
+
+const fieldClass =
+  "w-full px-4 py-3 text-lg text-ink bg-white border-2 border-input rounded-lg focus:border-brand focus:outline-none placeholder:text-ink-soft/60";
+
+const labelClass = "block text-base font-semibold text-ink mb-1.5";
 
 const HeroContactForm = () => {
   const navigate = useNavigate();
@@ -36,7 +40,7 @@ const HeroContactForm = () => {
     setStatus('');
 
     try {
-      const { data, error } = await supabase.functions.invoke('submit-contact-form', {
+      const { error } = await supabase.functions.invoke('submit-contact-form', {
         body: {
           name: formData.name,
           email: formData.email,
@@ -62,113 +66,124 @@ const HeroContactForm = () => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8">
-      <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">
-        Get Your Cash Offer
-      </h3>
-      <p className="text-center text-gray-500 mb-6 text-sm">
-        Fill out a few quick fields — we'll respond within 24 hours.
+    <div id="hero-form" className="bg-white rounded-2xl shadow-2xl border border-border p-6 lg:p-8 scroll-mt-28">
+      <h2 className="text-2xl lg:text-3xl font-bold text-ink mb-2 text-center">
+        Get your cash offer
+      </h2>
+      <p className="text-center text-ink-soft mb-5 text-base">
+        Four quick fields. We reply within 24 hours.
       </p>
 
       {/* Trust signals */}
-      <div className="flex justify-center gap-4 mb-6 text-sm text-gray-600">
-        <div className="flex items-center gap-1.5">
-          <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
-          <span>No obligation</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
-          <span>24hr response</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
-          <span>Zero fees</span>
-        </div>
+      <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mb-6 text-base text-ink-soft">
+        {['No obligation', '24hr response', 'Zero fees'].map((signal) => (
+          <div key={signal} className="flex items-center gap-1.5">
+            <CheckCircle size={18} className="text-success flex-shrink-0" />
+            <span>{signal}</span>
+          </div>
+        ))}
       </div>
-      
+
       <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          name="propertyAddress"
-          value={formData.propertyAddress}
-          onChange={handleChange}
-          placeholder="Property Address"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-          required
-        />
+        <div>
+          <label htmlFor="hero-address" className={labelClass}>Property address</label>
+          <input
+            id="hero-address"
+            type="text"
+            name="propertyAddress"
+            value={formData.propertyAddress}
+            onChange={handleChange}
+            placeholder="123 Main St, Kansas City, MO"
+            className={fieldClass}
+            required
+          />
+        </div>
 
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-          placeholder="Full Name"
-        />
+        <div>
+          <label htmlFor="hero-name" className={labelClass}>Full name</label>
+          <input
+            id="hero-name"
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className={fieldClass}
+            placeholder="Jane Smith"
+          />
+        </div>
 
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-          placeholder="Email Address"
-        />
+        <div>
+          <label htmlFor="hero-email" className={labelClass}>Email address</label>
+          <input
+            id="hero-email"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className={fieldClass}
+            placeholder="you@example.com"
+          />
+        </div>
 
-        <input
-          type="tel"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-500 placeholder:text-base"
-          placeholder="Phone Number"
-        />
+        <div>
+          <label htmlFor="hero-phone" className={labelClass}>Phone number</label>
+          <input
+            id="hero-phone"
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            className={fieldClass}
+            placeholder="(816) 555-0134"
+          />
+        </div>
 
         {/* Consent Checkbox */}
-        <div className="flex items-start space-x-3">
-          <Checkbox 
+        <div className="flex items-start space-x-3 pt-1">
+          <Checkbox
+            id="hero-consent"
             checked={consentChecked}
             onCheckedChange={(checked) => setConsentChecked(checked === true)}
             className="mt-1"
           />
-          <div className="text-sm text-gray-600">
+          <label htmlFor="hero-consent" className="text-base text-ink-soft leading-snug cursor-pointer">
             I agree to receive follow-up communications from Cozy Home Partners. See our{' '}
-            <a href="/privacy-policy" className="text-blue-600 hover:underline">privacy policy</a>.
-          </div>
+            <a href="/privacy-policy" className="text-brand underline">privacy policy</a>.
+          </label>
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-200"
+          className="w-full bg-brand hover:bg-brand-dark disabled:opacity-60 text-brand-foreground py-4 px-6 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 transition-colors"
         >
           {isSubmitting ? (
             <>
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-              <span>Processing...</span>
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
+              <span>Sending...</span>
             </>
           ) : (
             <>
-              <Send size={18} />
+              <Send size={20} />
               <span>Get My Cash Offer</span>
             </>
           )}
         </button>
 
         {status === 'error' && (
-          <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg">
-            <AlertCircle size={18} />
-            <span className="text-sm">Error sending message. Please try again.</span>
+          <div className="flex items-center gap-2 text-destructive bg-destructive/10 p-3 rounded-lg">
+            <AlertCircle size={20} />
+            <span className="text-base">Something went wrong. Please try again.</span>
           </div>
         )}
-        
+
         {status === 'consent-error' && (
-          <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg">
-            <AlertCircle size={18} />
-            <span className="text-sm">Please agree to receive follow-up messages to continue.</span>
+          <div className="flex items-center gap-2 text-destructive bg-destructive/10 p-3 rounded-lg">
+            <AlertCircle size={20} />
+            <span className="text-base">Please check the consent box to continue.</span>
           </div>
         )}
       </form>
