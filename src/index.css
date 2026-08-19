@@ -73,14 +73,13 @@
   }
 
   html {
-    /* Larger base size for a 40+ audience */
-    font-size: 112.5%; /* 18px */
+    font-size: 100%; /* 16px */
     -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-background text-foreground font-sans;
-    line-height: 1.7;
+    line-height: 1.65;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }

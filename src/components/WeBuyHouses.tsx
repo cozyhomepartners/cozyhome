@@ -1,43 +1,65 @@
 import React from 'react';
-import { Wrench, Gavel, Scroll, MapPin, HeartHandshake, KeyRound } from 'lucide-react';
+import {
+  Home,
+  Gavel,
+  Scroll,
+  MapPin,
+  Users,
+  KeyRound,
+  DollarSign,
+  User,
+  HelpCircle,
+} from 'lucide-react';
 import { scrollToOfferForm } from '@/lib/scrollToForm';
 
 const situations = [
   {
-    icon: Wrench,
-    title: 'The repair list is too long',
-    description:
-      'You got a renovation quote you cannot justify, and no agent will list the house until the work is done.',
+    icon: Home,
+    title: 'Too Many Repairs',
+    description: 'Received a renovation quote to get your house fixed and can\u2019t afford the costs?',
   },
   {
     icon: Gavel,
-    title: 'Facing foreclosure',
-    description:
-      'You are behind on the mortgage or taxes and need the sale finished before the auction date.',
+    title: 'Stop Foreclosure',
+    description: 'In default on your mortgage or taxes, and the house is scheduled for auction?',
   },
   {
     icon: Scroll,
-    title: 'You inherited the house',
-    description:
-      'It sits empty in another part of town while you cover taxes, insurance and upkeep on a home you never planned to own.',
+    title: 'Inherited A Property',
+    description: 'Inherited property and need to sell it before probate is complete?',
   },
   {
     icon: MapPin,
-    title: 'Relocating',
-    description:
-      'A new job or retirement has a start date, and you cannot carry two mortgages while a listing sits on the market.',
+    title: 'Moving Out Of State',
+    description: 'Need to relocate for work or retirement and need a quick seamless sale?',
   },
   {
-    icon: HeartHandshake,
-    title: 'Divorce or separation',
-    description:
-      'You need one clean number and one closing date so both sides can settle and move forward.',
+    icon: Users,
+    title: 'Divorce',
+    description: 'You won\u2019t have to fix or clean anything! We will buy your home the way it is.',
   },
   {
     icon: KeyRound,
-    title: 'Done being a landlord',
+    title: 'Tired Landlord',
     description:
-      'Late rent, turnovers and repair calls have stopped being worth it. We buy occupied rentals too.',
+      'Sick of being a landlord and renting to tenants who trash your home and don\u2019t pay rent when it\u2019s due?',
+  },
+  {
+    icon: DollarSign,
+    title: 'Loss Of Income',
+    description:
+      'Lost your job or had a reduction in income and can no longer afford your mortgage payments?',
+  },
+  {
+    icon: User,
+    title: 'Elderly Moving To Assisted Living',
+    description: 'Need to transition to assisted living and sell your home quickly for the move?',
+  },
+  {
+    icon: HelpCircle,
+    title: 'Other Reasons You May Have',
+    description:
+      'Whatever your unique situation, we understand and are here to help with a fast cash sale.',
   },
 ];
 
@@ -45,13 +67,14 @@ const WeBuyHouses = () => {
   return (
     <section className="py-20 bg-surface">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-14 max-w-3xl mx-auto">
-          <h2 className="text-3xl lg:text-4xl font-bold text-ink mb-5">
-            We Can Buy Your House <span className="text-brand-accent">No Matter The Situation!</span>
+        <div className="text-center mb-12 max-w-3xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold text-ink mb-4">
+            We Can Buy Your House No Matter{' '}
+            <span className="text-brand-accent">The Situation!</span>
           </h2>
           <p className="text-lg text-ink-soft leading-relaxed">
-            The MLS works well when a house is move-in ready and you have months to spare.
-            These are the situations where it usually is not the right fit.
+            Your reasons for selling do not matter to us. The only thing we care about is solving
+            your problem by buying your house in cash as hassle-free as possible.
           </p>
         </div>
 
@@ -59,24 +82,19 @@ const WeBuyHouses = () => {
           {situations.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="bg-surface p-7 rounded-2xl border border-border hover:border-brand/40 transition-colors"
+              className="bg-white p-8 rounded-2xl border border-border text-center hover:border-brand/40 hover:shadow-md transition-all"
             >
-              <div className="w-12 h-12 rounded-xl bg-white border border-border flex items-center justify-center mb-5">
-                <Icon className="w-6 h-6 text-brand" />
-              </div>
-              <h3 className="text-xl font-bold text-ink mb-3">{title}</h3>
+              <Icon className="w-9 h-9 text-brand-accent mx-auto mb-4" strokeWidth={1.75} />
+              <h3 className="text-lg font-bold text-ink mb-2">{title}</h3>
               <p className="text-ink-soft leading-relaxed">{description}</p>
             </div>
           ))}
         </div>
 
         <div className="text-center">
-          <p className="text-lg text-ink-soft mb-6">
-            Your situation not listed? It still counts — tell us about it.
-          </p>
           <button
             onClick={scrollToOfferForm}
-            className="bg-brand hover:bg-brand-dark text-brand-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+            className="bg-brand hover:bg-brand-dark text-brand-foreground px-8 py-4 rounded-lg font-semibold transition-colors"
           >
             Get My Cash Offer
           </button>
