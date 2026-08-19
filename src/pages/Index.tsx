@@ -1,8 +1,7 @@
-
 import React from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import HeroFormSection from '../components/HeroFormSection';
+import MlsComparison from '../components/MlsComparison';
 import HowToSell from '../components/HowToSell';
 import BenefitsOfSelling from '../components/BenefitsOfSelling';
 import WeBuyHouses from '../components/WeBuyHouses';
@@ -13,7 +12,6 @@ import SEOHead from '../components/SEOHead';
 import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 const Index = () => {
-  // Use scroll restoration hook instead of useEffect
   useScrollRestoration();
 
   return (
@@ -26,7 +24,7 @@ const Index = () => {
       />
       <Header />
       <Hero />
-      <HeroFormSection />
+      <MlsComparison />
       <HowToSell />
       <BenefitsOfSelling />
       <WeBuyHouses />
