@@ -46,7 +46,7 @@ const ThankYou = () => {
                 <div className="w-6 h-6 bg-brand rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                   <span className="text-white text-xs font-bold">2</span>
                 </div>
-                <p className="text-ink">A team member will contact you to schedule a walkthrough</p>
+                <p className="text-ink">A team member will contact you to schedule one quick visit to the property</p>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="w-6 h-6 bg-brand rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">

@@ -15,31 +15,31 @@ const OurProcess = () => {
     {
       number: "01",
       title: "Contact Us",
-      description: "Give us a call or fill out our form to tell us about your property. We'll ask a few questions about your house and situation.",
+      description: "Fill out our form with the property address. It takes about a minute, and there is no obligation of any kind.",
       icon: <FileText className="w-8 h-8 text-brand" />
     },
     {
       number: "02", 
       title: "Property Evaluation",
-      description: "We'll schedule a convenient time to view your property. Our team will assess the condition and location to determine a fair offer.",
+      description: "We stop by once, at a time that suits you, usually for under 30 minutes. No open houses, no strangers, and nothing to clean or fix beforehand.",
       icon: <Home className="w-8 h-8 text-brand" />
     },
     {
       number: "03",
       title: "Receive Your Offer",
-      description: "Within 24 hours, we'll present you with a no-obligation cash offer. No hidden fees, no commissions, no closing costs.",
+      description: "Within 24 hours you get a fair cash offer in writing, with the number explained. No commissions, no closing costs, no hidden fees.",
       icon: <DollarSign className="w-8 h-8 text-brand" />
     },
     {
       number: "04",
       title: "Accept & Schedule Closing",
-      description: "If you accept our offer, we'll work with you to schedule a closing date that works for your timeline. Close in as little as 7 days.",
+      description: "If the number works, you pick the closing date. Close in as little as 7 days, or take a few months if you need time to move.",
       icon: <Clock className="w-8 h-8 text-brand" />
     },
     {
       number: "05",
       title: "Get Your Cash",
-      description: "At closing, you'll receive your cash payment. It's that simple! No waiting for buyer financing or deal complications.",
+      description: "You get paid at closing. Our funds are our own, so there is no lender, no appraisal and no last-minute collapse.",
       icon: <Key className="w-8 h-8 text-brand" />
     }
   ];
@@ -50,7 +50,7 @@ const OurProcess = () => {
     "No repairs or renovations needed",
     "Close on your timeline",
     "Cash payment at closing",
-    "No showings or open houses"
+    "One private visit — no showings or open houses"
   ];
 
   return (
@@ -74,8 +74,7 @@ const OurProcess = () => {
             </h1>
             
             <p className="text-xl text-ink-soft leading-relaxed mb-8">
-              Selling your house has never been easier. Our streamlined process gets you cash fast, 
-              with no hassles, no fees, and no surprises.
+              A clear alternative to listing on the MLS: no repairs, no showings beyond one quick visit, and a firm cash offer within 24 hours.
             </p>
 
             <button
@@ -85,7 +84,7 @@ const OurProcess = () => {
               }}
               className="bg-brand hover:bg-brand-dark text-white py-4 px-8 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl mb-8"
             >
-              Start Now — Get Your Offer
+              Get My Cash Offer
             </button>
 
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
@@ -114,8 +113,7 @@ const OurProcess = () => {
               How It Works
             </h2>
             <p className="text-lg text-ink-soft max-w-2xl mx-auto">
-              From initial contact to cash in hand, our process is designed to be fast, 
-              transparent, and stress-free.
+              From the first form to cash in hand. Every step is on your timeline, and you can stop at any point.
             </p>
           </div>
 
@@ -167,7 +165,7 @@ const OurProcess = () => {
                 Why Choose Our Process?
               </h2>
               <p className="text-lg text-ink-soft">
-                We've eliminated the traditional hassles of selling your home
+                Everything a traditional MLS listing asks of you, removed
               </p>
             </div>
 
