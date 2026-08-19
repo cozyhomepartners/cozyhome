@@ -50,7 +50,7 @@ const OurProcess = () => {
     "No repairs or renovations needed",
     "Close on your timeline",
     "Cash payment at closing",
-    "One private visit — no showings or open houses"
+    "One private visit, no showings or open houses"
   ];
 
   return (

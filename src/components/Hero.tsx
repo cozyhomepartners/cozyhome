@@ -16,18 +16,18 @@ const Hero = () => {
 
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-ink">
               A simpler way to sell your{' '}
-              <span className="text-brand">Kansas City</span> home — without the MLS
+              <span className="text-brand">Kansas City</span> home, without the MLS
             </h1>
 
             <p className="text-xl text-ink-soft leading-relaxed">
               No listing. No repairs. No parade of strangers through your living room.
-              Tell us about your house and get a fair cash offer within 24 hours — you
+              Tell us about your house and get a fair cash offer within 24 hours. You
               choose the closing date.
             </p>
 
             <ul className="space-y-3">
               {[
-                'One private visit from us — never a public showing',
+                'One private visit from us, never a public showing',
                 'We pay all closing costs and charge zero commission',
                 'Close in as little as 7 days, or on your timeline',
               ].map((item) => (

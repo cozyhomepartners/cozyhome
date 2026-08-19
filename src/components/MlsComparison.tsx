@@ -5,13 +5,13 @@ import { scrollToOfferForm } from '@/lib/scrollToForm';
 const rows = [
   {
     label: 'Time to sold',
-    mls: 'Typically 1–3 months from listing to closing',
+    mls: 'Typically 1 to 3 months from listing to closing',
     us: 'Cash offer in 24 hours, closing in as little as 7 days',
   },
   {
     label: 'Showings',
     mls: 'Open houses and strangers touring your home',
-    us: 'One private visit from our team — that is it',
+    us: 'One private visit from our team, that is it',
   },
   {
     label: 'Repairs & cleanup',
@@ -20,7 +20,7 @@ const rows = [
   },
   {
     label: 'Agent commission',
-    mls: 'Usually 5–6% of the sale price',
+    mls: 'Usually 5 to 6% of the sale price',
     us: 'None. There is no agent in the middle',
   },
   {
@@ -31,7 +31,7 @@ const rows = [
   {
     label: 'Deal certainty',
     mls: "Offers fall through when a buyer's financing does",
-    us: 'Our funds are our own — no lender, no appraisal contingency',
+    us: 'Our funds are our own, so no lender and no appraisal contingency',
   },
   {
     label: 'Closing date',
