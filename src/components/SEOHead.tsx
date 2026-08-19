@@ -7,8 +7,6 @@ interface SEOHeadProps {
   keywords?: string;
   canonicalUrl?: string;
   ogImage?: string;
-  countyName?: string;
-  state?: string;
 }
 
 const SEOHead = ({ 
@@ -16,9 +14,7 @@ const SEOHead = ({
   description, 
   keywords, 
   canonicalUrl, 
-  ogImage,
-  countyName,
-  state 
+  ogImage
 }: SEOHeadProps) => {
   const defaultImage = "https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=1200&h=630";
   const imageUrl = ogImage || defaultImage;
@@ -46,29 +42,6 @@ const SEOHead = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
       
-      {/* Structured Data */}
-      {countyName && state && (
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Cozy Home Partners",
-            "description": `We buy houses in ${countyName}, ${state} for cash! Fast, fair offers with no fees or closing costs.`,
-            "url": canonicalUrl,
-            "telephone": "+1-847-809-3322",
-            "image": imageUrl,
-            "email": "offer@cozyhomepartners.com",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": countyName.replace(" County", ""),
-              "addressRegion": state,
-              "addressCountry": "US"
-            },
-            "areaServed": countyName,
-            "serviceType": "Cash Home Buying"
-          })}
-        </script>
-      )}
     </Helmet>
   );
 };

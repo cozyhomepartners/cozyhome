@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
   Drawer,
@@ -12,11 +12,7 @@ import {
 } from "./ui/drawer";
 import { useIsMobile } from "../hooks/use-mobile";
 
-interface MobileNavigationProps {
-  counties: Array<{ name: string; path: string }>;
-}
-
-const MobileNavigation = ({ counties }: MobileNavigationProps) => {
+const MobileNavigation = () => {
   const isMobile = useIsMobile();
 
   if (!isMobile) return null;
@@ -49,20 +45,6 @@ const MobileNavigation = ({ counties }: MobileNavigationProps) => {
               Our Process
             </Link>
           </DrawerClose>
-          
-          <div className="border-t pt-4">
-            <h3 className="text-ink font-semibold mb-2">Service Areas</h3>
-            {counties.map((county) => (
-              <DrawerClose key={county.path} asChild>
-                <Link
-                  to={county.path}
-                  className="block text-ink-soft hover:text-brand transition-colors py-1 pl-4"
-                >
-                  {county.name}
-                </Link>
-              </DrawerClose>
-            ))}
-          </div>
         </div>
       </DrawerContent>
     </Drawer>
