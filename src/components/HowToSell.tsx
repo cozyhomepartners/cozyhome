@@ -31,7 +31,7 @@ const steps = [
 
 const HowToSell = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-surface">
       <div className="container mx-auto px-6">
         <div className="text-center mb-14 max-w-3xl mx-auto">
           <h2 className="text-3xl lg:text-4xl font-bold text-ink mb-5">

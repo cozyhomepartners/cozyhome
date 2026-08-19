@@ -43,11 +43,11 @@ const situations = [
 
 const WeBuyHouses = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-surface">
       <div className="container mx-auto px-6">
         <div className="text-center mb-14 max-w-3xl mx-auto">
           <h2 className="text-3xl lg:text-4xl font-bold text-ink mb-5">
-            When a listing is <span className="text-brand">the wrong tool</span>
+            We Can Buy Your House <span className="text-brand-accent">No Matter The Situation!</span>
           </h2>
           <p className="text-lg text-ink-soft leading-relaxed">
             The MLS works well when a house is move-in ready and you have months to spare.

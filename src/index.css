@@ -14,14 +14,15 @@
     --popover-foreground: 215 32% 14%;
 
     /* Brand: deep, high-contrast trust blue */
-    --brand: 214 88% 30%;
-    --brand-dark: 214 90% 22%;
-    --brand-soft: 210 92% 95%;
+    --brand: 214 52% 25%;
+    --brand-dark: 224 61% 15%;
+    --brand-accent: 209 46% 43%;
+    --brand-soft: 213 31% 93%;
     --brand-foreground: 0 0% 100%;
 
     /* Warm clay accent so "cozy" reads */
-    --clay: 24 62% 45%;
-    --clay-soft: 30 60% 94%;
+    --clay: 209 46% 43%;
+    --clay-soft: 213 31% 93%;
     --clay-foreground: 0 0% 100%;
 
     /* Text */
@@ -29,31 +30,31 @@
     --ink-soft: 215 20% 32%;
 
     /* Surfaces */
-    --surface: 210 32% 97%;
-    --surface-alt: 30 40% 97%;
+    --surface: 213 33% 96%;
+    --surface-alt: 213 31% 93%;
 
     --success: 152 58% 32%;
 
-    --primary: 214 88% 30%;
+    --primary: 214 52% 25%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 32% 97%;
+    --secondary: 213 33% 96%;
     --secondary-foreground: 215 32% 14%;
 
-    --muted: 210 32% 97%;
+    --muted: 213 33% 96%;
     --muted-foreground: 215 20% 32%;
 
-    --accent: 210 92% 95%;
-    --accent-foreground: 214 90% 22%;
+    --accent: 213 31% 93%;
+    --accent-foreground: 224 61% 15%;
 
     --destructive: 0 72% 42%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 214 20% 87%;
     --input: 214 20% 80%;
-    --ring: 214 88% 30%;
+    --ring: 214 52% 25%;
 
-    --radius: 0.625rem;
+    --radius: 0.875rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -85,9 +86,10 @@
   }
 
   h1, h2, h3, h4 {
-    @apply font-serif text-ink;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
+    @apply font-display text-ink;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.022em;
   }
 
   /* Visible, generous focus ring for keyboard and low-vision users */
