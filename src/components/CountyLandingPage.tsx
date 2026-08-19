@@ -74,13 +74,19 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
                 ))}
               </ul>
 
-              <div className="relative pt-2">
-                <img
-                  src={mapImage}
-                  alt={`Map of the area we serve in ${countyName}, ${state}`}
-                  className="rounded-2xl shadow-lg w-full max-w-md"
-                  loading="lazy"
-                />
+              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border">
+                <div>
+                  <div className="text-3xl font-bold text-ink font-serif">24 hrs</div>
+                  <div className="text-ink-soft text-base">To your offer</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-ink font-serif">7 days</div>
+                  <div className="text-ink-soft text-base">Possible closing</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-ink font-serif">$0</div>
+                  <div className="text-ink-soft text-base">Fees or commission</div>
+                </div>
               </div>
             </div>
 
