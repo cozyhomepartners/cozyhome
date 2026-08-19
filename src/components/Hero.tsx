@@ -5,7 +5,7 @@ import HeroContactForm from './HeroContactForm';
 const Hero = () => {
   return (
     <section className="relative bg-gradient-to-br from-brand-soft via-white to-surface-alt py-14 lg:py-20">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Content */}
           <div className="space-y-7">
