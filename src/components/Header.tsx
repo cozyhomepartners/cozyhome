@@ -1,10 +1,18 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import MobileNavigation from './MobileNavigation';
 import { scrollToOfferForm } from '@/lib/scrollToForm';
 
 const Header = () => {
+  const location = useLocation();
+
+  const handleHomeClick = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4">
