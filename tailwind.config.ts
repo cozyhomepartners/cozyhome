@@ -18,7 +18,31 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+				sans: ['"Source Sans 3"', 'system-ui', 'sans-serif']
+			},
 			colors: {
+				brand: {
+					DEFAULT: 'hsl(var(--brand))',
+					dark: 'hsl(var(--brand-dark))',
+					soft: 'hsl(var(--brand-soft))',
+					foreground: 'hsl(var(--brand-foreground))'
+				},
+				clay: {
+					DEFAULT: 'hsl(var(--clay))',
+					soft: 'hsl(var(--clay-soft))',
+					foreground: 'hsl(var(--clay-foreground))'
+				},
+				ink: {
+					DEFAULT: 'hsl(var(--ink))',
+					soft: 'hsl(var(--ink-soft))'
+				},
+				surface: {
+					DEFAULT: 'hsl(var(--surface))',
+					alt: 'hsl(var(--surface-alt))'
+				},
+				success: 'hsl(var(--success))',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
