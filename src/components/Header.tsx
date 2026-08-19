@@ -26,6 +26,7 @@ const Header = () => {
             <div className="hidden md:flex items-center space-x-8">
               <Link 
                 to="/" 
+                onClick={handleHomeClick}
                 className="text-ink font-medium hover:text-brand transition-colors"
               >
                 Home
