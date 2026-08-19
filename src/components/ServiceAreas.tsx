@@ -2,11 +2,9 @@ import React from 'react';
 import { MapPin, Check } from 'lucide-react';
 
 const ServiceAreas = () => {
-  const cities = [
-    "Kansas City", "Overland Park", "Olathe", "Independence",
-    "Lee's Summit", "Shawnee", "Blue Springs", "Lenexa",
-    "Leawood", "Prairie Village", "Raytown", "Gladstone",
-    "Liberty", "Belton"
+  const counties = [
+    "Clay County, MO", "Cass County, MO", "Jackson County, MO",
+    "Wyandotte County, KS", "Johnson County, KS", "Platte County, KS"
   ];
 
   return (
@@ -18,20 +16,20 @@ const ServiceAreas = () => {
             Serving the greater Kansas City area
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-ink mb-4">
-            The Cities We Cover
+            The Counties We Cover
           </h2>
           <p className="text-lg text-ink-soft max-w-2xl mx-auto">
-            We buy houses across the Kansas City metro on both sides of the state line.
+            We buy houses in these counties across the Kansas City metro, on both sides of the state line.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
           <div className="bg-surface rounded-2xl p-8 border border-border">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {cities.map((city) => (
-                <div key={city} className="flex items-center gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {counties.map((county) => (
+                <div key={county} className="flex items-center gap-2.5">
                   <Check size={20} className="text-success flex-shrink-0" />
-                  <span className="text-ink font-medium text-lg">{city}</span>
+                  <span className="text-ink font-medium text-lg">{county}</span>
                 </div>
               ))}
             </div>

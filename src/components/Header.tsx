@@ -1,22 +1,10 @@
 
 import React from 'react';
-import { Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MobileNavigation from './MobileNavigation';
 import { scrollToOfferForm } from '@/lib/scrollToForm';
 
 const Header = () => {
-  const counties = [
-    { name: "Clay County, MO", path: "/clay-county-mo" },
-    { name: "Cass County, MO", path: "/cass-county-mo" },
-    { name: "Jackson County, MO", path: "/jackson-county-mo" },
-    { name: "Wyandotte County, KS", path: "/wyandotte-county-ks" },
-    { name: "Johnson County, KS", path: "/johnson-county-ks" },
-    { name: "Platte County, KS", path: "/platte-county-ks" },
-  ];
-
-
-
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4">
@@ -48,28 +36,6 @@ const Header = () => {
               >
                 Our Process
               </Link>
-              
-              {/* Service Areas Navigation - hover only */}
-              <div className="relative group">
-                <span className="text-ink font-medium cursor-default text-base">
-                  Service Areas
-                </span>
-                <div className="absolute top-full left-0 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="bg-white border border-gray-200 rounded-md shadow-lg w-[250px] p-4">
-                    <div className="grid gap-3">
-                      {counties.map((county) => (
-                        <Link
-                          key={county.path}
-                          to={county.path}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-surface hover:text-brand"
-                        >
-                          <div className="text-base font-medium leading-none">{county.name}</div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* CTA Button */}
@@ -81,7 +47,7 @@ const Header = () => {
             </button>
 
             {/* Mobile Navigation */}
-            <MobileNavigation counties={counties} />
+            <MobileNavigation />
           </div>
         </div>
       </div>

@@ -11,12 +11,6 @@ import OurProcess from "./pages/OurProcess";
 import ThankYou from "./pages/ThankYou";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
-import ClayCountyMO from "./pages/ClayCountyMO";
-import CassCountyMO from "./pages/CassCountyMO";
-import JacksonCountyMO from "./pages/JacksonCountyMO";
-import WyandotteCountyKS from "./pages/WyandotteCountyKS";
-import JohnsonCountyKS from "./pages/JohnsonCountyKS";
-import PlatteCountyKS from "./pages/PlatteCountyKS";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
@@ -35,12 +29,6 @@ const App = () => {
               <Route path="/thank-you" element={<ThankYou />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="/clay-county-mo" element={<ClayCountyMO />} />
-              <Route path="/cass-county-mo" element={<CassCountyMO />} />
-              <Route path="/jackson-county-mo" element={<JacksonCountyMO />} />
-              <Route path="/wyandotte-county-ks" element={<WyandotteCountyKS />} />
-              <Route path="/johnson-county-ks" element={<JohnsonCountyKS />} />
-              <Route path="/platte-county-ks" element={<PlatteCountyKS />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
