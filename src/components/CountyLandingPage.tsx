@@ -1,15 +1,13 @@
-
 import React from 'react';
 import Header from './Header';
-import HeroFormSection from './HeroFormSection';
+import HeroContactForm from './HeroContactForm';
+import MlsComparison from './MlsComparison';
 import HowToSell from './HowToSell';
-import BenefitsOfSelling from './BenefitsOfSelling';
-import WeBuyHouses from './WeBuyHouses';
 import ContactForm from './ContactForm';
 import Footer from './Footer';
 import SEOHead from './SEOHead';
 import { useScrollRestoration } from '../hooks/useScrollRestoration';
-import { Star, MapPin } from 'lucide-react';
+import { Star, MapPin, CheckCircle, Check } from 'lucide-react';
 
 interface CountyLandingPageProps {
   countyName: string;
@@ -19,17 +17,15 @@ interface CountyLandingPageProps {
 }
 
 const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandingPageProps) => {
-  // Use scroll restoration hook instead of useEffect
   useScrollRestoration();
 
-  // Generate canonical URL with consistent www domain
-  const getCanonicalUrl = (county: string, state: string) => {
-    const countySlug = county.toLowerCase().replace(' county', '').replace(' ', '') + '-county-' + state.toLowerCase();
+  const getCanonicalUrl = (county: string, st: string) => {
+    const countySlug = county.toLowerCase().replace(' county', '').replace(' ', '') + '-county-' + st.toLowerCase();
     return `https://www.cozyhomepartners.com/${countySlug}`;
   };
-  
+
   const canonicalUrl = getCanonicalUrl(countyName, state);
-  
+
   return (
     <div className="min-h-screen">
       <SEOHead
@@ -41,117 +37,86 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
         countyName={countyName}
         state={state}
       />
-      
+
       <Header />
-      
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-white py-20">
+
+      {/* Hero with form */}
+      <section className="relative bg-gradient-to-br from-brand-soft via-white to-surface-alt py-14 lg:py-20">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="space-y-8">
-              <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                <Star size={16} className="text-blue-600" />
-                <span>Trusted {countyName} Real Estate Experts</span>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div className="space-y-7">
+              <div className="inline-flex items-center gap-2 bg-white border border-brand/20 text-brand px-4 py-2 rounded-full text-base font-semibold">
+                <Star size={18} className="text-clay" />
+                <span>Local cash buyers in {countyName}</span>
               </div>
-              
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                We Buy Houses in
-                <span className="text-blue-600 block">{countyName}</span>
+
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-ink">
+                Sell your house in{' '}
+                <span className="text-brand">{countyName}</span> without listing it
               </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Sell your house fast in <span className="text-blue-600 font-semibold">{countyName}</span> for cash. 
-                No fees, no repairs, no hassle. We close in as little as 7 days.
+
+              <p className="text-xl text-ink-soft leading-relaxed">
+                No MLS listing, no repairs, no open houses. Tell us about your{' '}
+                {countyName} property and get a fair cash offer within 24 hours —
+                you choose the closing date.
               </p>
 
-              <button
-                onClick={() => {
-                  const form = document.getElementById('hero-form');
-                  if (form) form.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
-              >
-                Get My Cash Offer
-              </button>
+              <ul className="space-y-3">
+                {[
+                  'One private visit — never a public showing',
+                  'Zero commission, and we pay all closing costs',
+                  `Close in as little as 7 days anywhere in ${countyName}`,
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-lg text-ink">
+                    <CheckCircle size={22} className="text-success flex-shrink-0 mt-1" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">100+</div>
-                  <div className="text-gray-600">Homes Sold</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">6+</div>
-                  <div className="text-gray-600">Counties Served</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">98%</div>
-                  <div className="text-gray-600">Client Satisfaction</div>
-                </div>
+              <div className="relative pt-2">
+                <img
+                  src={mapImage}
+                  alt={`Map of the area we serve in ${countyName}, ${state}`}
+                  className="rounded-2xl shadow-lg w-full max-w-md"
+                  loading="lazy"
+                />
               </div>
             </div>
 
-            {/* Right Content - County Map */}
-            <div className="relative">
-              <img 
-                src={mapImage}
-                alt={`${countyName} Map`}
-                className="rounded-2xl shadow-2xl"
-              />
-              
-              {/* Floating Card */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                    <span className="text-green-600 font-bold">✓</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">Just Sold!</div>
-                    <div className="text-gray-600 text-sm">{countyName}, {state}</div>
-                  </div>
-                </div>
-              </div>
+            <div className="lg:sticky lg:top-28">
+              <HeroContactForm />
             </div>
           </div>
         </div>
       </section>
 
-      <HeroFormSection />
+      <MlsComparison />
       <HowToSell />
-      <BenefitsOfSelling />
-      <WeBuyHouses />
-      
+
       {/* County-specific Service Areas */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <MapPin size={16} />
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 bg-brand-soft text-brand px-4 py-2 rounded-full text-base font-semibold mb-6">
+              <MapPin size={18} />
               Serving {countyName}
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-ink mb-4">
               Cities We Cover in {countyName}
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Proudly serving families across {countyName}, {state} with personalized options.
+            <p className="text-lg text-ink-soft max-w-2xl mx-auto">
+              We buy houses in every community across {countyName}, {state}.
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border">
-              <div className="flex items-center justify-center gap-2 mb-6">
-                <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm">✓</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">Cities & Areas We Serve in {countyName}</h3>
-              </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {cities.map((city, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-gray-700 font-medium text-sm">{city}</span>
+            <div className="bg-surface rounded-2xl p-8 border border-border">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {cities.map((city) => (
+                  <div key={city} className="flex items-center gap-2.5">
+                    <Check size={20} className="text-success flex-shrink-0" />
+                    <span className="text-ink font-medium text-lg">{city}</span>
                   </div>
                 ))}
               </div>
@@ -159,7 +124,7 @@ const CountyLandingPage = ({ countyName, state, mapImage, cities }: CountyLandin
           </div>
         </div>
       </section>
-      
+
       <ContactForm />
       <Footer />
     </div>
