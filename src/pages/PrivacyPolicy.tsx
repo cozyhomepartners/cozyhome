@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
       <SEOHead
         title="Privacy Policy | Cozy Home Partners"
         description="How Cozy Home Partners collects, uses, and protects the information you share when requesting a cash offer on your Kansas City area home."
-        canonicalUrl="https://www.cozyhomepartners.com/privacy-policy"
+        path="/privacy-policy"
       />
       <Header />
 

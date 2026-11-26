@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
+import { breadcrumbJsonLd, businessJsonLd } from '@/lib/schema';
 import { CheckCircle, Clock, DollarSign, FileText, Home, Key } from 'lucide-react';
 
 const OurProcess = () => {
@@ -56,14 +57,14 @@ const OurProcess = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Our 5-Step Home Buying Process | Cozy Home Partners"
-        description="Learn about our simple 5-step process for buying houses in Kansas City. Get a cash offer in 24 hours with no fees, repairs, or hassles."
-        keywords="how we buy houses, cash home buying process, sell house process, Kansas City"
-        canonicalUrl="https://www.cozyhomepartners.com/our-process"
+        title="How We Buy Houses for Cash in Kansas City: 5-Step Process | Cozy Home Partners"
+        description="How selling your house for cash works in Kansas City: send the address, one quick visit, a written offer in 24 hours, you pick the closing date, get paid. No fees or repairs."
+        path="/our-process"
+        jsonLd={[businessJsonLd(), breadcrumbJsonLd([{ name: 'Our process', path: '/our-process' }])]}
       />
       
       <Header />
-      
+      <main>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-brand-soft to-white py-20">
         <div className="container mx-auto px-6">
@@ -182,6 +183,7 @@ const OurProcess = () => {
       </section>
 
       <ContactForm />
+      </main>
       <Footer />
     </div>
   );

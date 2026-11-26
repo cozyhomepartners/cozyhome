@@ -2,7 +2,7 @@ import React from 'react';
 import { Star, CheckCircle } from 'lucide-react';
 import HeroContactForm from './HeroContactForm';
 
-const Hero = () => {
+const Hero = ({ place = 'Kansas City' }: { place?: string }) => {
   return (
     <section className="relative bg-gradient-to-br from-brand-soft via-white to-surface-alt py-14 lg:py-20">
       <div className="container mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
@@ -11,12 +11,12 @@ const Hero = () => {
           <div className="space-y-7">
             <div className="inline-flex items-center gap-2 bg-white border border-brand/20 text-brand px-4 py-2 rounded-full text-base font-semibold">
               <Star size={18} className="text-clay" />
-              <span>Local cash buyers in the Kansas City metro</span>
+              <span>We buy houses for cash in {place}</span>
             </div>
 
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-ink">
-              A simpler way to sell your{' '}
-              <span className="text-brand">Kansas City</span> home, without the MLS
+              Sell your <span className="text-brand">{place}</span> house fast for cash,
+              without the MLS
             </h1>
 
             <p className="text-xl text-ink-soft leading-relaxed">

@@ -9,6 +9,11 @@ import ServiceAreas from '../components/ServiceAreas';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
+import FAQ from '../components/FAQ';
+import { faqsFor, faqJsonLd } from '@/data/faqs';
+import { businessJsonLd, websiteJsonLd } from '@/lib/schema';
+
+const faqs = faqsFor();
 import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 const Index = () => {
@@ -17,19 +22,22 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Cozy Home Partners - Kansas City"
-        description="Cash home buyers in the Kansas City metro: Liberty MO, Raytown, Lenexa, Olathe, Shawnee and Prairie Village KS. Get your fair cash offer today."
-        keywords="we buy houses for cash liberty mo, cash home buyers raytown, we buy houses lenexa ks, we buy houses cash kc, we buy houses kansas, we buy houses olathe ks, cash home buyers prairie village ks, cash home buyers lenexa ks, we buy houses shawnee ks, cash home buyers lenexa"
-        canonicalUrl="https://www.cozyhomepartners.com/"
+        title="We Buy Houses Kansas City | Sell Your House Fast for Cash | Cozy Home Partners"
+        description="Sell your Kansas City house fast for cash. Local buyers in MO & KS: cash offer in 24 hours, no repairs, no commissions, no closing costs. Close in as little as 7 days."
+        path="/"
+        jsonLd={[businessJsonLd(), websiteJsonLd(), faqJsonLd(faqs)]}
       />
       <Header />
+      <main>
       <Hero />
       <MlsComparison />
       <HowToSell />
       <BenefitsOfSelling />
       <WeBuyHouses />
       <ServiceAreas />
+      <FAQ faqs={faqs} />
       <ContactForm />
+      </main>
       <Footer />
     </div>
   );

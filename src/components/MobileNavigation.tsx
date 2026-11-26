@@ -53,6 +53,14 @@ const MobileNavigation = () => {
               Our Process
             </Link>
           </DrawerClose>
+          <DrawerClose asChild>
+            <Link 
+              to="/we-buy-houses" 
+              className="block text-ink font-medium hover:text-brand transition-colors py-2"
+            >
+              Areas We Serve
+            </Link>
+          </DrawerClose>
         </div>
       </DrawerContent>
     </Drawer>

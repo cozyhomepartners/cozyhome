@@ -1,16 +1,22 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { trackLead } from '@/lib/analytics';
 import { CheckCircle, Home, Mail, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
 
 const ThankYou = () => {
+  useEffect(() => {
+    trackLead();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-soft to-white flex items-center justify-center px-6">
       <SEOHead
         title="Thank You for Your Cash Offer Request | Cozy Home Partners"
         description="Thanks for reaching out. We received your property details and will follow up shortly with a fair, no-obligation cash offer."
-        canonicalUrl="https://www.cozyhomepartners.com/thank-you"
+        path="/thank-you"
+        noindex
       />
       <div className="max-w-2xl mx-auto text-center">
 

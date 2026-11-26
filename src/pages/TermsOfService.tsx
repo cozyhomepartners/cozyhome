@@ -10,7 +10,7 @@ const TermsOfService = () => {
       <SEOHead
         title="Terms of Service | Cozy Home Partners"
         description="The terms that govern your use of the Cozy Home Partners website and our cash home buying services in the Kansas City metro area."
-        canonicalUrl="https://www.cozyhomepartners.com/terms-of-service"
+        path="/terms-of-service"
       />
       <Header />
 
@@ -65,7 +65,7 @@ const TermsOfService = () => {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibent text-ink mb-4">5. Limitations</h2>
+              <h2 className="text-2xl font-semibold text-ink mb-4">5. Limitations</h2>
               <p className="text-ink mb-4">
                 In no event shall Cozy Home Partners or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Cozy Home Partners' website, even if Cozy Home Partners or an authorized representative has been notified orally or in writing of the possibility of such damage.
               </p>

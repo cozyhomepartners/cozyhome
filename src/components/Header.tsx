@@ -45,6 +45,12 @@ const Header = () => {
               >
                 Our Process
               </Link>
+              <Link 
+                to="/we-buy-houses" 
+                className="text-ink font-medium hover:text-brand transition-colors"
+              >
+                Areas We Serve
+              </Link>
             </div>
 
             {/* CTA Button */}
