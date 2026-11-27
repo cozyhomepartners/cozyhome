@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Send, AlertCircle, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { markLeadPending } from '@/lib/analytics';
 import { supabase } from '@/integrations/supabase/client';
 import { Checkbox } from './ui/checkbox';
 
@@ -56,6 +57,7 @@ const HeroContactForm = () => {
       });
 
       if (error) throw error;
+      markLeadPending();
       navigate('/thank-you');
     } catch (error) {
       console.error('Form submission error:', error);
